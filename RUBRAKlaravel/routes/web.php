@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/Rubrakhome',[UserController::class,'index']);
-
+Route::get('/pets', [PetController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
