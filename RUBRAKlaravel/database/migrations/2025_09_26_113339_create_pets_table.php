@@ -12,8 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pets', function (Blueprint $table) {
-            $table->id();
+            $table->id("pet_id");
+            $table->string("name_pet");
+            $table->integer("age_pet");
+            $table->string("gender");
+            $table->string("breed");
+            $table->boolean("vaccine");
+            $table->boolean("status");
+            $table->string("info");
+            $table->string("foundation");
+            $table->string("province");
+            $table->string("type");
+            $table->string("picture");
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -22,6 +34,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pets');
+        Schema::table('pets', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
+
     }
 };
