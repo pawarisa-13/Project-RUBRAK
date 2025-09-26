@@ -1,0 +1,7 @@
+header ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+            margin: 0;
+        }
