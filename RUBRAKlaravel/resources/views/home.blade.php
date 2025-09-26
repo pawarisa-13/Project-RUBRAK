@@ -9,8 +9,8 @@
 <body>
     <header>
         <div class="logo">
-            <img src="{{ asset('public/Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
-            <h3>Rubrak</h3>
+            <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
+            <h4>Rubrak</h4>
         </div>
         <ul>
             <li class="menu"><a href="">Home</a></li>

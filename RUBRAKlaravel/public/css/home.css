@@ -40,16 +40,15 @@ header {
         }
 
 .logo img {
-             width: 40px;
+            width: 40px;
             height: 40px;
-            background: #4a6fa5;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-.logo h3 {
+.logo h4 {
             font-size: 24px;
             font-weight: 600;
             color: #4a6fa5;
