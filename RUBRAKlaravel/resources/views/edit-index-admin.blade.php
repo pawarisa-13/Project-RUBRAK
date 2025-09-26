@@ -8,7 +8,7 @@
 <body>
     <h1>Edit {{ $p->name_pet }}</h1>
 
-    <form action="{{ route('pets.update', $p->pet_id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.pets.update', $p->pet_id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -65,6 +65,6 @@
     </form>
 
     <br>
-    <a href="{{ url('/pets') }}">Back</a>
+    <a href="{{ url('http://127.0.0.1:8000/admin/pets') }}">Back</a>
 </body>
 </html>

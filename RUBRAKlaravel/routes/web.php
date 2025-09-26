@@ -19,12 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Rubrakhome',[UserController::class,'index']);
-Route::get('/pets', [PetController::class, 'index']);
-Route::post('/pets', [PetController::class, 'store']);
-Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->name('pets.edit');
-Route::put('/pets/{id}', [PetController::class, 'update'])->name('pets.update');
-Route::delete('/pets/{id}', [PetController::class, 'destroy'])->name('pets.destroy');
+Route::get('/Rubrakhome', [UserController::class, 'index']);
+// Route::get('/pets', [PetController::class, 'index'])->name('pets.index');
+// Route::post('/pets', [PetController::class, 'store']);
+// Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->name('pets.edit');
+// Route::put('/pets/{id}', [PetController::class, 'update'])->name('pets.update');
+// Route::delete('/pets/{id}', [PetController::class, 'destroy'])->name('pets.destroy');
 
 Route::middleware([
     'auth:sanctum',
@@ -42,5 +42,10 @@ Route::middleware(['auth', 'verified', 'admin'])
     ->group(function () {
         Route::get('/dashboard', [AdminDashboardController::class, '__invoke'])
             ->name('dashboard');
-    });
 
+        Route::get('/pets', [PetController::class, 'index'])->name('pets.index');
+        Route::post('/pets', [PetController::class, 'store'])->name('pets.store');
+        Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->name('pets.edit');
+        Route::put('/pets/{id}', [PetController::class, 'update'])->name('pets.update');
+        Route::delete('/pets/{id}', [PetController::class, 'destroy'])->name('pets.destroy');
+    });

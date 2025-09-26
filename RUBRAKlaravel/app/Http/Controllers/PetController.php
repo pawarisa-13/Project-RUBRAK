@@ -81,6 +81,6 @@ class PetController extends Controller
         // ลบข้อมูลออกจาก database
         $p->delete();
 
-        return redirect()->route('pets.index')->with('ok', 'Deleted!');
+        return redirect()->route('admin.pets.index')->with('ok', 'Deleted!');
     }
 }
