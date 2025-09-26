@@ -12,12 +12,14 @@
             <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
             <h4>Rubrak</h4>
         </div>
-        <ul>
+        <div class="nav">
+            <ul>
             <li class="menu"><a href="">Home</a></li>
             <li class="menu"><a href="http://">Pet</a></li>
             <li class="menu"><a href="http://">Donate</a></li>
             <li class="menu"><a href="http://">Contact Us</a></li>
         </ul>
+        </div>
     </header>
     <div class="header-stripe"></div>
     <div class="header-stripe"></div>
