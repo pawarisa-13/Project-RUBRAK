@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PetController;
-
+use App\Http\Controllers\Admin\AdminDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +35,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::middleware(['auth', 'verified', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, '__invoke'])
+            ->name('dashboard');
+    });
+
