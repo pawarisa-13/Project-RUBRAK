@@ -10,7 +10,7 @@
 
 <body>
     <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100">
-    <form action=" " method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.pets.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>Name :</label>
         <input type="text" name="name_pet" placeholder="Name" required><br><br>
@@ -84,10 +84,10 @@
                 <p>Status : {{ $p->status ? 'Available' : 'Adopted' }}</p>
 
                 <div style="display:flex; gap:8px; margin-top:10px;">
-                    <a href="{{ route('pets.edit', $p->pet_id) }}"
+                    <a href="{{ route('admin.pets.edit', $p->pet_id) }}"
                         style="padding:6px 10px; border:1px solid #1e40af; border-radius:6px; background:#1e40af; text-decoration:none; color:#ffffff">Edit</a>
 
-                    <form action="{{ route('pets.destroy', $p->pet_id) }}" method="POST"
+                    <form action="{{ route('admin.pets.destroy', $p->pet_id) }}" method="POST"
                         onsubmit="return confirm('Are you sure?')" style="margin:0;">
                         @csrf
                         @method('DELETE')
