@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pet;
+use Illuminate\Support\Facades\Storage;
 
 class PetController extends Controller
 {
@@ -11,5 +12,75 @@ class PetController extends Controller
     {
         $pets = Pet::all();
         return view('index-admin', compact('pets'));
+    }
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name_pet' => 'required',
+            'age_pet' => 'required|integer',
+            'gender' => 'required',
+            'picture' => 'nullable|image|mimes:jpg,jpeg,png',
+            'breed' => 'nullable|string|max:255',
+            'vaccine'    => 'required|boolean',
+            'status'     => 'required|boolean',
+            'foundation' => 'nullable|string|max:255',
+            'province' => 'nullable|string|max:255',
+            'info' => 'nullable|string',
+            'type' => 'required',
+
+        ]);
+
+        if ($request->hasFile('picture')) {
+            $data['picture'] = $request->file('picture')->store('pets', 'public');
+        }
+
+        Pet::create($data);
+
+        return redirect()->back()->with('success', 'Pet Added Successfully!');
+    }
+    public function edit($id)
+    {
+        $p = Pet::findOrFail($id);
+        return view('edit', compact('p'));
+    }
+    public function update(Request $request, $id)
+    {
+        $p = Pet::findOrFail($id);
+
+        $data = $request->validate([
+            'name_pet' => 'required',
+            'age_pet' => 'required|integer',
+            'gender' => 'required',
+            'picture' => 'nullable|image|mimes:jpg,jpeg,png',
+            'breed' => 'nullable|string|max:255',
+            'vaccine' => 'required|boolean',
+            'status' => 'required|boolean',
+            'foundation' => 'nullable|string|max:255',
+            'province' => 'nullable|string|max:255',
+            'info' => 'nullable|string',
+            'type' => 'required',
+        ]);
+
+        if ($request->hasFile('picture')) {
+            $data['picture'] = $request->file('picture')->store('pets', 'public');
+        }
+
+        $p->update($data);
+
+        return redirect('/pets')->with('success', 'Pet updated successfully!');
+    }
+    public function destroy($id)
+    {
+        $p = Pet::findOrFail($id);
+
+        // ลบไฟล์รูปเก่า (ถ้ามี)
+        if ($p->picture && Storage::disk('public')->exists($p->picture)) {
+            Storage::disk('public')->delete($p->picture);
+        }
+
+        // ลบข้อมูลออกจาก database
+        $p->delete();
+
+        return redirect()->route('pets.index')->with('ok', 'Deleted!');
     }
 }

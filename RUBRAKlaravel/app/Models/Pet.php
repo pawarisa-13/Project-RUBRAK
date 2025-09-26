@@ -11,7 +11,24 @@ class Pet extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $primaryKey = 'pet_id';
+    public $timestamps = false;
+    protected $fillable = [
+        'name_pet',
+        'age_pet',
+        'gender',
+        'picture',
+        'breed',
+        'vaccine',
+        'status',
+        'info',
+        'foundation',
+        'province',
+        'type',
+    ];
+
     public function requests(){
         return $this->hasMany(Request::class, 'pet_id');
     }
+    
 }
