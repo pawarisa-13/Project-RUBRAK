@@ -10,4 +10,8 @@ class Request extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function pet(){
+        return $this->belongsTo(Pet::class, 'pet_id');
+    }
 }

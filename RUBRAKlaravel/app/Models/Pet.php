@@ -10,4 +10,8 @@ class Pet extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function requests(){
+        return $this->hasMany(Request::class, 'pet_id');
+    }
 }
