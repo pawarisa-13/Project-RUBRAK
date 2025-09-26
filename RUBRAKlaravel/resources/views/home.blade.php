@@ -8,8 +8,8 @@
 </head>
 <body>
     <header>
-        <div>
-            <img src="" alt="">
+        <div class="logo">
+            <img src="{{ asset('public/Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
             <h3>Rubrak</h3>
         </div>
         <ul>
@@ -19,6 +19,8 @@
             <li class="menu"><a href="http://">Contact Us</a></li>
         </ul>
     </header>
+    <div class="header-stripe"></div>
+    <div class="header-stripe"></div>
     <main>
         <div>
             <img src="" alt="">
