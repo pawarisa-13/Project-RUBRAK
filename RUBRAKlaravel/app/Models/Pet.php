@@ -14,4 +14,5 @@ class Pet extends Model
     public function requests(){
         return $this->hasMany(Request::class, 'pet_id');
     }
+    
 }

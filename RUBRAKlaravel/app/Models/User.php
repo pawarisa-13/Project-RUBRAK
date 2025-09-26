@@ -65,4 +65,10 @@ class User extends Authenticatable
         return $this->role === 'admin';
     }
 
+    public function requests(){
+        return $this->hasMany(Request::class, 'user_id');
+    }
+
 }
+
+
