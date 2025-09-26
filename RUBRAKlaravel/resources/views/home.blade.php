@@ -18,7 +18,6 @@
             <li class="menu"><a href="http://">Donate</a></li>
             <li class="menu"><a href="http://">Contact Us</a></li>
         </ul>
-
     </header>
     <main>
         <div>
