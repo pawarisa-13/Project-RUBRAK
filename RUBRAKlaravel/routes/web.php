@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\PetController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +20,11 @@ Route::get('/', function () {
 });
 
 Route::get('/Rubrakhome',[UserController::class,'index']);
-
+Route::get('/pets', [PetController::class, 'index']);
+Route::post('/pets', [PetController::class, 'store']);
+Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->name('pets.edit');
+Route::put('/pets/{id}', [PetController::class, 'update'])->name('pets.update');
+Route::delete('/pets/{id}', [PetController::class, 'destroy'])->name('pets.destroy');
 
 Route::middleware([
     'auth:sanctum',
@@ -30,3 +35,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::middleware(['auth', 'verified', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/dashboard', [AdminDashboardController::class, '__invoke'])
+            ->name('dashboard');
+    });
+
