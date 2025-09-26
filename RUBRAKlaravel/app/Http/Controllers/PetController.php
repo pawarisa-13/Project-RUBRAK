@@ -41,7 +41,7 @@ class PetController extends Controller
     public function edit($id)
     {
         $p = Pet::findOrFail($id);
-        return view('edit', compact('p'));
+        return view('edit-index-admin', compact('p'));
     }
     public function update(Request $request, $id)
     {
