@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="logo">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
+            <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
             <h4>Rubrak</h4>
         </div>
         <ul>
@@ -22,21 +22,13 @@
     </header>
     <div class="header-stripe"></div>
 
+
     <main>
         <div>
             <img src="" alt="">
         </div>
         <img src="" alt="">
-        <div>
-            <h1>Profile User</h1>
-
-            <br><br>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
-            </form>
-
-        </div>
+        <h1>Contact Page</h1>
     </main>
 </body>
 </html>

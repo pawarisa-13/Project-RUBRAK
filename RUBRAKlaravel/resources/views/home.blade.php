@@ -19,15 +19,15 @@
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
             <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
-            <li class="menu"><a href="http://">Donate</a></li>
-            <li class="menu"><a href="http://">Contact Us</a></li>
+            <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
+            <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
             <li class="menu"><a href="{{route ('profile')}}">Profile</a></li>
         </ul>
         </div>
     </header>
     <div class="header-stripe"></div>
 
-    
+
     <main>
         <div>
             <img src="" alt="">
