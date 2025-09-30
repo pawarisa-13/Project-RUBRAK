@@ -73,6 +73,7 @@ Route::middleware([
 
     //User
     Route::get('/req', [PetController::class, 'req'])->name('request.form');
+    //pets_user
 
     //Admin
     Route::post('/pets', [PetController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
@@ -87,7 +88,7 @@ Route::middleware([
     //Controller
     Route::get('/profile', [Controller::class, 'profile'])->name('profile');
     Route::get('/Rubrakhome', [Controller::class, 'home'])->name('home');
-    Route::get('/pets', [Controller::class, 'Showpets'])->name('pets.index');
+    Route::get('/pets', [PetController::class, 'pets_user'])->name('pets.index');
 });
 
 
