@@ -24,9 +24,17 @@
         </ul>
     </header>
 
+    <table>
+
+    </table>
+
     <div class="header-stripe"></div>
 
     <h2>Table request here</h2>
+    <div class="pic">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="200" alt="imglogo">
+
+        </div>  
 
 
 </body>
