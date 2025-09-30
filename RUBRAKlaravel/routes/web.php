@@ -54,6 +54,7 @@ Route::middleware([
     //Admin
     Route::get('admin/pets', [PetController::class, 'index'])->name('admin.pets.index');
     Route::post('/pets', [PetController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
+    Route::put('/admin/pets/{id}', [PetController::class, 'update'])->middleware(CheckRole::class)->name('admin.pets.update');
     Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
     Route::delete('/pets/{id}', [PetController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
 

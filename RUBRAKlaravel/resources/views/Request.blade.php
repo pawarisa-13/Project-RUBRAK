@@ -29,16 +29,16 @@
     @csrf
 
     <label>Pet Experience :</label><br>
-    <input type="text" name="pet_experience"><br><br>
+    <input type="text" name="pet_experience" required><br><br>
 
     <label>Other Pets :</label><br>
-    <input type="text" name="other_pets"><br><br>
+    <input type="text" name="other_pets" required><br><br>
 
     <label>Adoption Reason :</label><br>
-    <input type="text" name="adoption_reason"><br><br>
+    <input type="text" name="adoption_reason" required><br><br>
 
     <label>Address :</label><br>
-    <input type="text" name="address"><br><br>
+    <input type="text" name="address" required><br><br>
 
 
     <input type="checkbox" name="housing_type[]" value="Condo"> Condo
