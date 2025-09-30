@@ -22,25 +22,13 @@
     </header>
     <div class="header-stripe"></div>
 
+
     <main>
         <div>
             <img src="" alt="">
         </div>
         <img src="" alt="">
-        <div>
-            <h1>Profile Admin</h1>
-            <br><br>
-            <a href="{{route ('pets.index')}}">Add pet</a><br><br>
-            <a href="{{route ('infoTable')}}">Information</a><br><br>
-            <a href="{{route ('reqTable')}}">Request</a><br><br>
-            <br><br>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
-            </form>
-
-
-        </div>
+        <h1>Donate Page</h1>
     </main>
 </body>
 </html>

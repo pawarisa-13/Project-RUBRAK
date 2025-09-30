@@ -76,6 +76,8 @@ Route::middleware([
     //pets_user
 
     //Admin
+    //store
+
     Route::post('/pets', [PetController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
     Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
     Route::delete('/pets/{id}', [PetController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
@@ -84,6 +86,7 @@ Route::middleware([
     Route::get('/information', [AdminController::class, 'infoTable'])->middleware(CheckRole::class)->name('infoTable');
     Route::get('/reqTable', [AdminController::class, 'reqTable'])->middleware(CheckRole::class)->name('reqTable');
     Route::get('/pets/{id}/edit', [AdminController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
+    Route::post('/pets', [AdminController::class, 'store'])->middleware(CheckRole::class)->name('pets.showstore');
 
     //Controller
     Route::get('/profile', [Controller::class, 'profile'])->name('profile');
