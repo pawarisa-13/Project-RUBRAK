@@ -13,9 +13,7 @@
             <h4>Rubrak</h4>
         </div>
         <div class="nav">
-            <ul>
-            <li class="menu"><a href="">Home</a></li>
-            <li class="menu"><a href="http://">Pet</a></li>
+            
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
             <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
