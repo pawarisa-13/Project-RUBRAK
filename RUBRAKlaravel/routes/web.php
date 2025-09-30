@@ -86,7 +86,7 @@ Route::middleware([
     Route::get('/reqTable', [AdminController::class, 'reqTable'])->middleware(CheckRole::class)->name('reqTable');
     Route::get('/pets/{id}/edit', [AdminController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
    
-
+    
     //Controller
     Route::get('/profile', [Controller::class, 'profile'])->name('profile');
     Route::get('/Rubrakhome', [Controller::class, 'home'])->name('home');
