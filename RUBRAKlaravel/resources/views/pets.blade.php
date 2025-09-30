@@ -11,7 +11,7 @@
     <header>
 
             <div class="logo">
-            <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
             <h4>Rubrak</h4>
         </div>
         <ul>

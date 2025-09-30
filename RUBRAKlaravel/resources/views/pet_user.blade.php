@@ -18,7 +18,7 @@
     <header>
 
             <div class="logo">
-            <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
             <h4>Rubrak</h4>
         </div>
         <ul>
@@ -47,7 +47,7 @@
             <img src="{{ asset($pet->picture) }}" alt="{{ $pet->name_pet }}">
             <h3>{{ $pet->name_pet }}</h3>
             <p>{{ $pet->gender }} | {{ $pet->province }}</p>
-            <button onclick="openModal({{ $pet->pet_id }})">More Info</button>
+            <button onclick="openModal('{{ $pet->pet_id }}')">More Info</button>
         </div>
         @endforeach
     </div>
