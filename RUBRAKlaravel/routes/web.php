@@ -44,35 +44,11 @@ Route::middleware([
          return view('dashboard');
     })->name('dashboard');
 
-    // //Admin
-    // // Route::get('/dashboard',[AdminController::class, 'index' ])
-    // // ->middleware('role:admin')
-    // // ->name('admin.home');
-    // Route::get('/Rubrakhome', [AdminController::class, 'home'])->name('home');
-    // //Route::get('/pets', [AdminController::class, 'index'])->middleware(CheckRole::class)->name('pets.index');
-    // //Route::post('/pets', [AdminController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
-    // Route::get('/pets/{id}/edit', [AdminController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
-    // Route::delete('/pets/{id}', [AdminController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
-    // //Route::get('/profile', [AdminController::class, 'profile'])->middleware(CheckRole::class)->name('profile');
-    // //Route::get('/req', [AdminController::class, 'req'])->middleware(CheckRole::class)->name('request.form');
-    // //User
-    // // Route::get('/dashboard',[UserController::class, 'index' ])
-    // // ->middleware('role:user')
-    // // ->name('user.home');
-    // //     return view('home');
-
-    // Route::get('/Rubrakhome', [UserController::class, 'home'])->name('home');
-    // Route::get('/Rubrakhome', [UserController::class, 'home'])->name('home');
-    // //Route::get('/pets', [UserController::class, 'Showpets'])->name('pets.index');
-    // //Route::post('/pets', [UserController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
-    // Route::get('/pets/{id}/edit', [UserController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
-    // Route::delete('/pets/{id}', [UserController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
-    // Route::get('/profile', [Controller::class, 'profile'])->name('profile');
-    // Route::get('/req', [UserController::class, 'req'])->name('request.form');
-    //Route::get('/Rubrakhome', [UserController::class, 'home'])->name('home');
 
     //User
     Route::get('/req', [PetController::class, 'req'])->name('request.form');
+    Route::get('/contact', [UserController::class, 'contact'])->name('contact');
+    Route::get('/donate', [UserController::class, 'donate'])->name('donate');
     //pets_user
 
     //Admin
@@ -85,7 +61,7 @@ Route::middleware([
     Route::get('/information', [AdminController::class, 'infoTable'])->middleware(CheckRole::class)->name('infoTable');
     Route::get('/reqTable', [AdminController::class, 'reqTable'])->middleware(CheckRole::class)->name('reqTable');
     Route::get('/pets/{id}/edit', [AdminController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
-   
+
 
     //Controller
     Route::get('/profile', [Controller::class, 'profile'])->name('profile');
@@ -166,3 +142,29 @@ Route::middleware([
     // Route::delete('/pets/{id}', [AdminDashboardController::class, 'destroy'])->middleware(EnsureUserIsAdmin::class)->name('pets.destroy');
     // Route::get('/ReqTable', [AdminDashboardController::class, 'ReqTable'])->middleware(EnsureUserIsAdmin::class);
     // Route::get('/profile', [AdminDashboardController::class, 'profile'])->middleware(EnsureUserIsAdmin::class)->name('profile');
+// //Admin
+    // // Route::get('/dashboard',[AdminController::class, 'index' ])
+    // // ->middleware('role:admin')
+    // // ->name('admin.home');
+    // Route::get('/Rubrakhome', [AdminController::class, 'home'])->name('home');
+    // //Route::get('/pets', [AdminController::class, 'index'])->middleware(CheckRole::class)->name('pets.index');
+    // //Route::post('/pets', [AdminController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
+    // Route::get('/pets/{id}/edit', [AdminController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
+    // Route::delete('/pets/{id}', [AdminController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
+    // //Route::get('/profile', [AdminController::class, 'profile'])->middleware(CheckRole::class)->name('profile');
+    // //Route::get('/req', [AdminController::class, 'req'])->middleware(CheckRole::class)->name('request.form');
+    // //User
+    // // Route::get('/dashboard',[UserController::class, 'index' ])
+    // // ->middleware('role:user')
+    // // ->name('user.home');
+    // //     return view('home');
+
+    // Route::get('/Rubrakhome', [UserController::class, 'home'])->name('home');
+    // Route::get('/Rubrakhome', [UserController::class, 'home'])->name('home');
+    // //Route::get('/pets', [UserController::class, 'Showpets'])->name('pets.index');
+    // //Route::post('/pets', [UserController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
+    // Route::get('/pets/{id}/edit', [UserController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
+    // Route::delete('/pets/{id}', [UserController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
+    // Route::get('/profile', [Controller::class, 'profile'])->name('profile');
+    // Route::get('/req', [UserController::class, 'req'])->name('request.form');
+    //Route::get('/Rubrakhome', [UserController::class, 'home'])->name('home');
