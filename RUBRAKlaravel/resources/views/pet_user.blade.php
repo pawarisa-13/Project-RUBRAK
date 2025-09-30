@@ -24,8 +24,8 @@
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
             <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
-            <li class="menu"><a href="http://">Donate</a></li>
-            <li class="menu"><a href="http://">Contact Us</a></li>
+            <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
+            <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
             <li class="menu"><a href="{{route ('profile')}}">Profile</a></li>
 
         </ul>
@@ -65,7 +65,7 @@
             <p><strong>Info:</strong> <span id="modalInfo"></span></p>
             <p><strong>Foundation:</strong> <span id="modalFoundation"></span></p>
             <p><strong>Province:</strong> <span id="modalProvince"></span></p>
-            <button class="adopt-btn">Send a request</button>
+            <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button>
         </div>
     </div>
 

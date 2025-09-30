@@ -26,5 +26,14 @@ class UserController extends Controller
         return view('Request');
      }
 
-    
+     public function contact(){
+        return view('contact');
+     }
+
+     public function donate(){
+        return view('donate');
+     }
+
+
+
 }
