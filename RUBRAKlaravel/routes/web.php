@@ -16,7 +16,8 @@ use App\Http\Controllers\Pet_UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('pet', [Pet_UserController::class, "index"]);
+Route::get('pet', [Pet_UserController::class, "index"])->name('pet.filter');
+
 
 Route::get('/', function () {
     return view('welcome');

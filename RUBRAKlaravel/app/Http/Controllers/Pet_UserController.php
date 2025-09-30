@@ -7,8 +7,13 @@ use App\Models\Pet;
 
 class Pet_UserController extends Controller
 {
-    public function index(){
-        $pets = Pet::all();
-        return view("pet_user", compact("pets"));
+    public function index(Request $request){
+        $type = $request->input('type'); 
+        if ($type) {
+            $pets = Pet::where('type', $type)->get();
+        } else {
+            $pets = Pet::all();
+        }
+        return view('pet_user', compact('pets', 'type'));
     }
 }
