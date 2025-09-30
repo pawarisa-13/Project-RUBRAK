@@ -26,7 +26,7 @@
         </ul>
     </header>
     <div class="header-stripe"></div>
-    <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100">
+    <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100">
     <form action="{{ route('pets.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>Name :</label>
