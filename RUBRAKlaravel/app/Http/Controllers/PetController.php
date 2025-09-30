@@ -83,4 +83,8 @@ class PetController extends Controller
 
         return redirect()->route('admin.pets.index')->with('ok', 'Deleted!');
     }
+
+    public function req(){
+        return view('Request');
+     }
 }

@@ -25,19 +25,19 @@ class AdminUserSeeder extends Seeder
         );
         //Admin 2
         User::updateOrCreate(
-            ['email' => 'admin2@example.com'],
+            ['email' => 'ad2@example.com'],
             [
                 'name' => 'Second Admin',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make('222'),
                 'role' => 'admin',
             ]
         );
         //Admin 3
         User::updateOrCreate(
-            ['email' => 'admin3@example.com'],
+            ['email' => 'ad3@example.com'],
             [
                 'name' => 'Second Admin',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make('333'),
                 'role' => 'admin',
             ]
         );
