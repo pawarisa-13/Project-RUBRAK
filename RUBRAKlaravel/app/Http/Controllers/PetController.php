@@ -83,4 +83,18 @@ class PetController extends Controller
 
         return redirect()->route('admin.pets.index')->with('ok', 'Deleted!');
     }
+
+    public function req(){
+        return view('Request');
+     }
+
+     public function pets_user(Request $request){
+        $type = $request->input('type');
+        if ($type) {
+            $pets = Pet::where('type', $type)->get();
+        } else {
+            $pets = Pet::all();
+        }
+        return view('pet_user', compact('pets', 'type'));
+    }
 }

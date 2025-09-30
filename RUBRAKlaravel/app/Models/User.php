@@ -60,10 +60,10 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function isAdmin(): bool
-    {
-        return $this->role === 'admin';
-    }
+    // public function isAdmin(): bool
+    // {
+    //     return $this->role === 'admin';
+    // }
 
     public function requests(){
         return $this->hasMany(Request::class, 'user_id');
