@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Edit Pet</title>
     <link rel="stylesheet" href="{{ asset('css/pets.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
 </head>
 <body>
     <header>
