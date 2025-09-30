@@ -30,7 +30,7 @@
         <div>
             <h1>Profile Admin</h1>
             <br><br>
-            <a href="{{route ('pets.index')}}">Add pet</a><br><br>
+            <a href="{{route ('admin.pets.index')}}">Add pet</a><br><br>
             <a href="{{route ('infoTable')}}">Information</a><br><br>
             <a href="{{route ('reqTable')}}">Request</a><br><br>
             <br><br>
