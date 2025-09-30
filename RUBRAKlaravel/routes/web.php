@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Pet_UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('pet', [Pet_UserController::class, "index"]);
 
 Route::get('/', function () {
     return view('welcome');
