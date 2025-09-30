@@ -15,7 +15,7 @@
 </head>
 <body>
      {{-- Import Navbar --}}
-    @include('layouts.navbar')
+    {{-- @include('layouts.navbar') --}}
     <h1>Pet List</h1>
 
 <div class="pet-container">
