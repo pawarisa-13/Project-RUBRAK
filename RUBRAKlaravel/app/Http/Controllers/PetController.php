@@ -13,7 +13,7 @@ class PetController extends Controller
         $pets = Pet::all();
         return view('index-admin', compact('pets'));
     }
-    public function store_admin(Request $request)
+    public function store(Request $request)
     {
         $data = $request->validate([
             'name_pet' => 'required',
