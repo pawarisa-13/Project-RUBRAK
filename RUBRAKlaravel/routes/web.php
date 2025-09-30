@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\CheckRole;
+use App\Http\Controllers\Pet_UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,8 @@ use App\Http\Middleware\CheckRole;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('pet', [Pet_UserController::class, "index"])->name('pet.filter');
+
 
 Route::get('/', function () {
     return view('home');
