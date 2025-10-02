@@ -55,7 +55,7 @@
                 <th>Adoption Reason</th>
                 <th>Address</th>
                 <th>Submit Date</th>
-                <th>Status</th>
+                <th>Statos</th>
             </tr>
         </th>
         <td>
