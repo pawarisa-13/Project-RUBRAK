@@ -12,7 +12,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
       <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-        <img src="{{ asset('photo/IMG_6709.png') }}" alt="Rub Rak" width="36" class="me-2">
+        <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Rub Rak" width="36" class="me-2">
         Rub Rak
       </a>
 
@@ -33,7 +33,7 @@
     </div>
   </nav>
   <div class="donate-wrap">
-    <img src="{{ asset('photo/IMG_6709.png') }}" alt="Brand" width="110">
+    <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Brand" width="110">
     <h2 class="donate-title">Donate Us</h2>
     <img src="{{ asset('photo/Promptpay.webp') }}" alt="QR Code" class="donate-qr">
     <div class="donate-company">Rubrak Pet Care Co., Ltd.</div>
