@@ -14,7 +14,7 @@ class Pet_UserController extends Controller
                          ->where('status', 1)
                          ->get();
         } else {
-            $pets = Pet::where('status', 0)->get();
+            $pets = Pet::where('status', 1)->get();
         }
         return view('pet_user', compact('pets', 'type'));
     }
