@@ -28,7 +28,7 @@ class Pet extends Model
     ];
 
     public function requests(){
-        return $this->hasMany(Request::class, 'pet_id');
+        return $this->hasMany(RequestAdopt::class, 'pet_id','pet_id');
     }
-    
+
 }
