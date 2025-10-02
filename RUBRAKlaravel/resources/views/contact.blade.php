@@ -35,9 +35,8 @@
 
     <main>
         <div>
-            <img src="" alt="">
+            <img src="{{ asset('Pic-rubrak/homepic.jpg') }}" alt="contactpic" width="635" height="741" style="float: right; margin-left: 10px;">
         </div>
-        <img src="" alt="">
         <h1>Contact Page</h1>
     </main>
 </body>

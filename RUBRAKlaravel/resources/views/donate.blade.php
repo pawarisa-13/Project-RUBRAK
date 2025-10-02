@@ -6,38 +6,49 @@
     <title>Donate</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/donate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/donate.css') }}">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-        <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Rub Rak" width="36" class="me-2">
-        Rub Rak
-      </a>
+  <header>
+        <div class="logo">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
+            <p>Rubrak</p>
+        </div>
+        <div class="nav">     
+        <ul>
+            <li class="menu"><a href="{{route ('home')}}">Home</a></li>
+            <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
+            <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
+            <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="btn">
+            @auth
+            {{-- ถ้าล็อกอินแล้ว --}}
+                <a href="{{route('profile')}}"><button class="btn-header">Hello!, {{ Auth::user()->name }}</button></a>
+            @else
+            {{-- ถ้ายังไม่ล็อกอิน --}}
+            <a href="{{route('login')}}"><button class="btn-header">Sign In</button></a>
+            <a href="{{route('register')}}"><button class="btn-header">Sign Up</button></a>
+            @endauth
+        </div>
+    </header>
 
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mx-auto">
-            <!-- อย่าลืมลิ้งไปหน้าอื่น!!!!!!! -->
-        <li class="nav-item"><a class="nav-link" href="/Rubrakhome">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/pet ">Pet</a></li>
-        <li class="nav-item"><a class="nav-link active" href="/donate">Donate</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact us">Contact Us</a></li>
-        </ul>
-      </div>
-
-      <a class="btn-user" href="{{ url('/profile') }}">
-        <img src="{{ asset('photo/IMG_5426.jpg') }}" alt="user">
-        Hello!, {{ auth()->user()->name ?? 'User' }}
-      </a>
+    <div class="donate-wrap">
+        <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="logo" width="110">
+         <h2 class="donate-title">Donate Us</h2>
+        <div class="qr-box">
+            <img src="{{ asset('photo/Promptpay.webp') }}" alt="QR Code" class="qr-img">
+        </div>
+        <div class="donate-company">Rubrak Pet Care Co., Ltd.</div>
     </div>
-  </nav>
-  <div class="donate-wrap">
+    {{-- <div class="donate-wrap d-flex flex-column align-items-center justify-content-center text-center min-vh-100 py-5">
     <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Brand" width="110">
     <h2 class="donate-title">Donate Us</h2>
     <img src="{{ asset('photo/Promptpay.webp') }}" alt="QR Code" class="donate-qr">
     <div class="donate-company">Rubrak Pet Care Co., Ltd.</div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </div> --}}
+  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> --}}
 </body>
 </html>

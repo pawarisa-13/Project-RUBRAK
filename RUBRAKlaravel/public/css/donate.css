@@ -1,0 +1,49 @@
+* body {
+    font-family: 'Prompt', sans-serif;
+    font-size: x-large;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+/* CSS: ให้โหลดหลัง Bootstrap */
+.donate-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;            /* กึ่งกลางแนวตั้ง */
+  align-items: center;                /* กึ่งกลางแนวนอน */
+  text-align: center;
+  gap: 16px;
+  padding: 24px 16px;
+}
+
+/* หัวข้อให้คล้ายภาพตัวอย่าง */
+.donate-title{
+  color: #2f4b9c;
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: .5px;
+  margin: 8px 0 4px;
+}
+
+/* กล่องกรอบรอบ QR (ไม่ทำกรอบที่ <img> ตรง ๆ) */
+.qr-box{
+  display: inline-block;
+  padding: 12px;
+  border: 2px solid #2f4b9c !important;  /* กันโดนทับ */
+  border-radius: 10px;
+  background: #fff;
+}
+
+.qr-img{
+  display: block;          /* ตัดช่องว่างบรรทัด */
+  width: 260px;            /* ปรับขนาด QR ตามต้องการ */
+  height: auto;
+}
+
+.donate-company{
+  color: #2f4b9c;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 6px;
+}
