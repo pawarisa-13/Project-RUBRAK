@@ -23,7 +23,7 @@
         <div class="nav">     
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
-            <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
+            <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
             <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
             <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
             </ul>
