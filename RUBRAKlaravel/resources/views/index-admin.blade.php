@@ -5,77 +5,219 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Post</title>
+    <style>
+        .btn-primary {
+            background-color: #364C84;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #2c3c6a;
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 25px;
+            background-color: #f1f1f1;
+            border: none;
+            padding: 12px 18px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            box-shadow: 0 0 5px #98A9D2;
+            background-color: #fff;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .custom-select {
+            appearance: none;
+            /* เอาลูกศร default ของ browser ออก */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+
+            border-radius: 25px;
+            background-color: #364C84;
+            /* สีพื้นหลัง */
+            color: white;
+            /* สีตัวอักษร */
+            padding: 10px 40px 10px 15px;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 18px;
+        }
+
+        .form-control {
+            border-radius: 25px;
+            background-color: #f1f1f1;
+            border: none;
+            /* padding: 12px 18px; */
+        }
+
+        .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .form-group label {
+      /* กำหนดความกว้าง label */
+    font-weight: 500;
+    margin-right: 10px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    flex: 1;
+    border-radius: 10px;
+    background: #f1f1f1;
+    border: none;
+    padding: 10px 15px;
+  }
+  .form-group textarea {
+    resize: none;
+    height: 80px;
+  }
+  .form-check-inline {
+    margin-right: 15px;
+  }
+  .btn-submit {
+    background: #364C84;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.3s;
+  }
+    </style>
 </head>
 
 <body>
     <header>
 
-            <div class="logo">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
+        <div class="logo">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="36" alt="imglogo">
             <h4>Rubrak</h4>
         </div>
         <ul>
-            <li class="menu"><a href="{{route ('home')}}">Home</a></li>
-            <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
-            <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
-            <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
-            <li class="menu"><a href="{{route ('profile')}}">Profile</a></li>
+            <li class="menu"><a href="{{ route('home') }}">Home</a></li>
+            <li class="menu"><a href="{{ route('pets.index') }}">Pet</a></li>
+            <li class="menu"><a href="{{ route('donate') }}">Donate</a></li>
+            <li class="menu"><a href="{{ route('contact') }}">Contact Us</a></li>
+            <li class="menu"><a href="{{ route('profile') }}">Profile</a></li>
 
         </ul>
+
     </header>
     <div class="header-stripe"></div>
+
     <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100">
-    <form action="{{ route('pet.filter') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('pet.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <label>Name :</label>
         <input type="text" name="name_pet" placeholder="Name" required><br><br>
 
-        <label>Age :</label>
-        <input type="number" name="age_pet" placeholder="Age in months" required><br><br>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
-        <label>Gender :</label>
-        <input type="radio" name="gender" value="Male"> Male
-        <input type="radio" name="gender" value="Female"> Female
-        <br><br>
+        <div class="col-md-6">
+            <div class="row justify-content-center">
 
-        <label>Picture :</label>
-        <input type="file" name="picture"><br><br>
+                {{-- <div class="text-center mt-4"> --}}
+                <div class="card p-4">
+                    <div class="text-center mb-4">
+                        <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="100" alt="Logo">
+                    </div>
+                    {{-- </div> --}}
+                    <form action="{{ route('pets.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Name :</label>
+                            <input type="text" id="name" name="name_pet" placeholder="Name" required>
+                        </div>
 
-        <label>Type :</label>
-        <select name="type">
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <option value="Fish">Fish</option>
-            <option value="Rabbit">Rabbit</option>
-            <option value="etc.">Etc.</option>
-        </select><br><br>
+                        <div class="form-group">
+                            <label for="age">Age :</label>
+                            <input type="number" id="age" name="age_pet" placeholder="Age" required>
+                        </div>
 
-        <label>Vaccine :</label>
-        <input type="radio" name="vaccine" value="1"> Yes
-        <input type="radio" name="vaccine" value="0"> No
-        <br><br>
+                        <div class="form-check-inline">
+                            <label>Gender :</label>
+                            <input type="radio" name="gender" value="Male" required> Male
+                            <input type="radio" name="gender" value="Female" required> Female
+                            <br><br>
+                        </div>
 
-        <label>Breed :</label>
-        <input type="text" name="breed" placeholder="Breed"><br><br>
+                        <div class=>
+                            <label>Picture :</label>
+                            <input type="file" name="picture" required><br><br>
+                        </div>
 
-        <label>Province :</label>
-        <input type="text" name="province" placeholder="Location"><br><br>
+                        <div class="">
+                            <label>Type :</label>
+                            <select name="type" class="custom-select" required>
+                                <option value="Dog">Dog</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Rabbit">Rabbit</option>
+                                <option value="etc.">Etc.</option>
+                            </select><br><br>
+                        </div>
 
-        <label>Foundation :</label>
-        <input type="text" name="foundation" placeholder="Foundation"><br><br>
+                        <div class="form-check-inline">
+                            <label>Vaccine :</label>
+                            <input type="radio" name="vaccine" value="1" required> Yes
+                            <input type="radio" name="vaccine" value="0" required> No
+                            <br><br>
+                        </div>
 
-        <label>Info :</label>
-        <textarea name="info" placeholder="Additional Information"></textarea><br><br>
+                        <div class="form-group">
+                            <label>Breed :</label>
+                            <input type="text" name="breed" placeholder="Breed" required><br><br>
+                        </div>
 
-        <label>Status :</label>
-        <input type="radio" name="status" value="1"> Available
-        <input type="radio" name="status" value="0"> Adopted
-        <br><br>
+                        <div class="form-group">
+                            <label>Province :</label>
+                            <input type="text" name="province" placeholder="Location" required><br><br>
+                        </div>
 
-        <button type="submit">Add Pet</button>
-    </form>
+                        <div class="form-group">
+                            <label>Foundation :</label>
+                            <input type="text" name="foundation" placeholder="Foundation" required><br><br>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Info :</label>
+                            <textarea name="info" placeholder="Additional Information" required></textarea><br><br>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label>Status :</label>
+                            <input type="radio" name="status" value="1" required> Available
+                            <input type="radio" name="status" value="0" required> Adopted
+                            <br><br>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add Pet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <hr>
 
@@ -85,9 +227,9 @@
     <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;">
         @foreach ($pets as $p)
             <div class="Card-box"
-                style="flex:0 0 250px; max-width:250px; border:1px solid #364c84; border-radius:10px; padding:15px; background:#fdf8e2; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box; color:#364c84;">
+                style="flex:0 0 250px; max-width:250px; border:1px solid #364c84; border-radius:15px; padding:15px; background:#fdf8e2; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box; color:#364c84;">
                 <img src="{{ asset('storage/' . $p->picture) }}" alt="{{ $p->name_pet }}"
-                    style="width:100%; height:auto; border-radius:6px; object-fit:cover;">
+                    style="width:200px; height:200px; border-radius:6px; object-fit:cover; ">
 
                 <h3>{{ $p->name_pet }}</h3>
                 <p>Age : {{ $p->age_pet }} months</p>
@@ -114,6 +256,9 @@
                 </div>
             </div>
         @endforeach
+    </div><br><br>
+    <div class="text-center mt-4">
+        <a href="http://127.0.0.1:8000/profile" class="btn btn-sm btn-primary">Back</a>
     </div>
 
 </body>
