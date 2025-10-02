@@ -32,13 +32,41 @@
     </header>
     <div class="header-stripe"></div>
 
-    <h1>Pet List</h1>
     <div class="filter-buttons">
-        <a href="{{ route('pet.filter') }}">All</a>
-        <a href="{{ route('pet.filter', ['type' => 'Dog']) }}">Dog</a>
-        <a href="{{ route('pet.filter', ['type' => 'Cat']) }}">Cat</a>
-        <a href="{{ route('pet.filter', ['type' => 'Rabbit']) }}">Rabbit</a>
-        <a href="{{ route('pet.filter', ['type' => 'Fish']) }}">Fish</a>
+        @php
+            $types = ['Dog', 'Cat', 'Rabbit', 'Fish'];
+            $icons = [
+            'All' => 'all.png',
+            'Dog' => 'dog.png',
+            'Cat' => 'cat.png',
+            'Rabbit' => 'rabbit.png',
+            'Fish' => 'fish.png'
+        ];
+        @endphp
+
+        <!-- All -->
+        <div class="filter-item">
+            <a href="{{ route('pet.filter') }}" 
+            class="filter-btn {{ request('type') == null ? 'active' : '' }}"
+            >
+            <img src="{{ asset('storage/icon_filter/' . $icons['All']) }}" alt="All" class="btn-icon">
+            </a>
+            
+            <span class="filter-label {{ request('type') == null ? 'active' : '' }}">All</span>
+        </div>
+
+        <!-- Types -->
+        @foreach ($types as $type)
+        <div class="filter-item">
+            <a href="{{ route('pet.filter', ['type' => $type]) }}" 
+            class="filter-btn {{ request('type') == $type ? 'active' : '' }}">
+            <img src="{{ asset('storage/icon_filter/' . $icons[$type]) }}" alt="{{ $type }}" class="btn-icon">
+            </a>
+            <span class="filter-label {{ request('type') == $type ? 'active' : '' }}">{{ $type }}</span>
+        </div>
+        @endforeach
+    </div>
+
     </div>
 
     <div class="pet-container">

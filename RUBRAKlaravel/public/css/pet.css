@@ -82,3 +82,62 @@
         .modal-content button.adopt-btn:hover {
             background-color: #364C84;
         }
+
+        /* filter pet page */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .filter-item {
+            display: flex;
+            flex-direction: column; /* วางปุ่มกับตัวหนังสือจากบนลงล่าง */
+            align-items: center;    /* กึ่งกลางแนวนอน */
+        }
+
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;      /* ขนาดวงกลม */
+            height: 45px;
+            border-radius: 50%; /* ทำให้เป็นวงกลม */
+            background-color: #ddd; /* สีเทาเริ่มต้น */
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover {
+            background-color: #bbb; /* hover */
+        }
+
+        .filter-btn.active {
+            background-color: #364C84; /* สีปุ่มที่เลือก */
+        }
+
+        .filter-label {
+            margin-top: 5px;
+            color: #364C84;
+            font-weight: normal; /* ตัวหนังสือปกติ */
+            transition: 0.3s;
+        }
+
+        .filter-label.active {
+            font-weight: bold;   /* ตัวหนาเมื่อ active */
+        }
+
+        .btn-icon {
+            width: 35px;
+            height: 35px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        /* เปลี่ยนสีรูปเมื่อ active */
+        .filter-btn.active .btn-icon {
+            filter: brightness(0) invert(1); /* สีขาว */
+        }
