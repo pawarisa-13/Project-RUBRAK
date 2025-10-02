@@ -78,9 +78,9 @@ header {
 .home-content {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    text-align: left;   
-    padding: 100px;     
+    justify-content: center;
+    text-align: left;
+    padding: 100px;
 }
 .home-content h1{
     text-align: center;

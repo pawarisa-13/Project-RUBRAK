@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Pet;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,11 +16,11 @@ class AdminController extends Controller
         return view('home');
     }
 
-    public function ReqTable()
-    {
-        //$p = Pet::findOrFail();
-        return view('ReqTable');
-    }
+    // public function ReqTable()
+    // {
+    //     $request = Request::all();
+    //     return view('ReqTable',compact('$request'));
+    // }
 
     public function req(){
         return view('Request');
@@ -33,7 +34,8 @@ class AdminController extends Controller
      }
 
      public function infoTable(){
-        return view('information');
+
+        return view('infomation');
      }
 
      public function store(Request $request)
