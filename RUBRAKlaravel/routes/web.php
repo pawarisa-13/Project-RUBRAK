@@ -51,7 +51,7 @@ Route::middleware([
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
     Route::get('/donate', [UserController::class, 'donate'])->name('donate');
     //pets_user
-    Route::get('/pet', [Pet_UserController::class, "index"])->name('pet.filter');
+    Route::get('/pet', [Pet_UserController::class, "index"])->name('pet.filter'); //**** */
 
     //Admin
     Route::get('admin/pets', [PetController::class, 'index'])->name('admin.pets.index');
