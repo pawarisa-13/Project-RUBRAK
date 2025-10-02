@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Models\RequestAdopt;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -66,7 +66,7 @@ class User extends Authenticatable
     }
 
     public function requests(){
-        return $this->hasMany(Request::class, 'user_id');
+        return $this->hasMany(RequestAdopt::class, 'user_id');
     }
 
 }

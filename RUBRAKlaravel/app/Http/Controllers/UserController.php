@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Pet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
@@ -9,8 +9,6 @@ class UserController extends Controller
     public function index(){
         return view('home');
     }
-<<<<<<< Updated upstream
-=======
 
 
 
@@ -36,5 +34,4 @@ class UserController extends Controller
 
 
 
->>>>>>> Stashed changes
 }

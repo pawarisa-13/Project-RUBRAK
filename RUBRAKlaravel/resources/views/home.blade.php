@@ -9,41 +9,96 @@
 <body>
     <header>
         <div class="logo">
-            <img src="{{ asset('Logo-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
             <h4>Rubrak</h4>
         </div>
-<<<<<<< Updated upstream
-=======
         <div class="nav">
 
->>>>>>> Stashed changes
         <ul>
-            <li class="menu"><a href="">Home</a></li>
-            <li class="menu"><a href="http://">Pet</a></li>
-            <li class="menu"><a href="http://">Donate</a></li>
-            <li class="menu"><a href="http://">Contact Us</a></li>
+            <li class="menu"><a href="{{route ('home')}}">Home</a></li>
+            <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
+            <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
+            <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
+            <li class="menu"><a href="{{route ('profile')}}">Profile</a></li>
         </ul>
+        </div>
     </header>
     <div class="header-stripe"></div>
-    <div class="header-stripe"></div>
+
+
     <main>
         <div>
             <img src="" alt="">
         </div>
         <img src="" alt="">
         <div>
-<<<<<<< Updated upstream
             <h2>Welcome to “Rub Rak”</h2>
-            <p>Every animal deserves a safe, loving home. 
-            Here, you’ll find loyal companions who are ready to bring joy, and warmth into your life. 
-=======
-            <h2>Welcome to “Rub Rak”</h2> 
             <br>
             <p>Every animal deserves a safe, loving home.
             Here, you’ll find loyal companions who are ready to bring joy, and warmth into your life.
->>>>>>> Stashed changes
             When you adopt, you’re not just giving an animal a home-you’re opening your heart to a lifetime of unconditional love </p>
-            <a href="http://">Adopt Now</a>
+            <br><br>
+            <p>i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci i love comsci
+</p>
         </div>
     </main>
 </body>

@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="{{ asset('css/pets.css') }}">
 </head>
 <body>
-<<<<<<< Updated upstream
-=======
     <header>
 
             <div class="logo">
@@ -24,7 +22,6 @@
         </ul>
     </header>
     <div class="header-stripe"></div>
->>>>>>> Stashed changes
     <h1>Edit {{ $p->name_pet }}</h1>
 
     <form action="{{ route('admin.pets.update', $p->pet_id) }}" method="POST" enctype="multipart/form-data">

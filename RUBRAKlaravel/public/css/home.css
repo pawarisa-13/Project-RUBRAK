@@ -1,7 +1,22 @@
-body {
+/* body {
     font-family: 'Prompt', sans-serif;
     background: #fff;
-    }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    } */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+}
+/* nav {
+    background: #fff;
+    position : sticky;
+    color: #4a6fa5;
+
+} */
 header ul {
             display: flex;
             list-style: none;
@@ -11,7 +26,7 @@ header ul {
         }
 header {
             background: white;
-            padding: 15px 60px;
+            padding: 6px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -53,4 +68,9 @@ header {
             font-weight: 600;
             color: #4a6fa5;
             margin: 0;
+        }
+.nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }

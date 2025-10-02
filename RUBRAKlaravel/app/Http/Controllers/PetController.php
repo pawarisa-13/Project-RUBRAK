@@ -84,8 +84,6 @@ class PetController extends Controller
 
         return redirect()->route('admin.pets.index')->with('ok', 'Deleted!');
     }
-<<<<<<< Updated upstream
-=======
 
     // public function req(){
     //     return view('Request');
@@ -134,5 +132,4 @@ class PetController extends Controller
 
         return redirect()->route('pets.index')->with('success','ส่งคำขอรับเลี้ยงเรียบร้อย!');
     }
->>>>>>> Stashed changes
 }
