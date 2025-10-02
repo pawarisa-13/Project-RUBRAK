@@ -80,7 +80,7 @@
     <div class="pet-container">
         @foreach($pets as $pet)
         <div class="pet-card">
-            <img src="{{ asset($pet->picture) }}" alt="{{ $pet->name_pet }}">
+            <img src="{{ asset('storage/' . $pet->picture) }}" alt="{{ $pet->name_pet }}">
             <h3>{{ $pet->name_pet }}</h3>
             <p>{{ $pet->gender }} | {{ $pet->province }}</p>
             <button onclick="openModal('{{ $pet->pet_id }}')">More Info</button>
