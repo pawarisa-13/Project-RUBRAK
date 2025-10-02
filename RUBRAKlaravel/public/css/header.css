@@ -15,9 +15,15 @@ header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 6px solid #284a8f;
+            border-bottom: 10px solid #284a8f;
             
         }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+}
 .menu {
         display: flex;
         justify-content: center;
@@ -25,7 +31,7 @@ header {
         padding: 0;
 }
 .menu a {
-            font-weight: 600 !important;
+            font-weight: 600;
             font-size: large;
             text-decoration: none;
             color: #284a8f;
