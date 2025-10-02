@@ -33,7 +33,8 @@ class AdminController extends Controller
      }
 
      public function infoTable(){
-        return view('information');
+            $pets = Pet::all();
+            return view('information', compact('pets'));
      }
 
      public function store(Request $request)
