@@ -127,11 +127,6 @@
     <div class="header-stripe"></div>
 
     <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100">
-    <form action="{{ route('pet.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label>Name :</label>
-        <input type="text" name="name_pet" placeholder="Name" required><br><br>
-
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
         <div class="col-md-6">
