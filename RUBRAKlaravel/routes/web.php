@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Middleware\CheckRole;
 use App\Http\Controllers\Pet_UserController;
+use App\Http\Controllers\ReqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,7 @@ Route::middleware([
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
     Route::get('/donate', [UserController::class, 'donate'])->name('donate');
     //pets_user
-    Route::get('pet', [Pet_UserController::class, "index"])->name('pet.filter');
+    Route::get('/pet', [Pet_UserController::class, "index"])->name('pet.filter');
 
     //Admin
     Route::get('admin/pets', [PetController::class, 'index'])->name('admin.pets.index');
@@ -61,7 +62,7 @@ Route::middleware([
 
     //admin-profile
     Route::get('/information', [AdminController::class, 'infoTable'])->middleware(CheckRole::class)->name('infoTable');
-    Route::get('/reqTable', [AdminController::class, 'reqTable'])->middleware(CheckRole::class)->name('reqTable');
+    Route::get('/reqTable', [ReqController::class, 'reqTable'])->middleware(CheckRole::class)->name('reqTable');
     Route::get('/pets/{id}/edit', [AdminController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
 
 

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pet;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Validation\Rule;
+use App\Models\RequestAdopt ;
 class PetController extends Controller
 {
     public function index()
@@ -36,7 +37,7 @@ class PetController extends Controller
 
         Pet::create($data);
 
-        return redirect()->back()->with('success', 'Pet Added Successfully!');
+        return redirect('/pets')->with('success', 'Pet Added Successfully!');
     }
     public function edit($id)
     {
@@ -84,9 +85,9 @@ class PetController extends Controller
         return redirect()->route('admin.pets.index')->with('ok', 'Deleted!');
     }
 
-    public function req(){
-        return view('Request');
-     }
+    // public function req(){
+    //     return view('Request');
+    //  }
 
      public function pets_user(Request $request){
         $type = $request->input('type');
@@ -96,5 +97,39 @@ class PetController extends Controller
             $pets = Pet::all();
         }
         return view('pet_user', compact('pets', 'type'));
+    }
+
+    public function req($pet_id){
+        $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
+        $pets = Pet::all();
+
+        return view('Request',compact('pets'));
+     }
+     public function request(Request $req)
+    {
+        $req->validate([
+            'pet_id'         => [
+                'required','integer','exists:pets,pet_id',
+                Rule::unique('requests')->where(fn($q) =>
+                    $q->where('user_id', auth()->id())
+                )
+            ],
+            'pet_experience' => 'required|string',
+            'other_pet'      => 'required|string',
+            'adopt_reason'   => 'required|string',
+            'address_user'   => 'required|string',
+        ]);
+
+        RequestAdopt::create([
+            'user_id'        => auth()->id(),
+            'pet_id'         => $req->pet_id,
+            'pet_experience' => $req->pet_experience,
+            'other_pet'      => $req->other_pet,
+            'adopt_reason'   => $req->adopt_reason,
+            'address_user'   => $req->address_user,
+            'status_request' => 'submitted',
+        ]);
+
+        return redirect()->route('pets.index')->with('success','ส่งคำขอรับเลี้ยงเรียบร้อย!');
     }
 }
