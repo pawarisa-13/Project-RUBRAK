@@ -3,7 +3,7 @@ const pets = window.petsData; // รับข้อมูล pets จาก Blad
 function openModal(pet_id) {
     const pet = pets.find(p => p.pet_id == pet_id);
     if(pet){
-        document.getElementById('modalImage').src = pet.picture;
+        document.getElementById('modalImage').src = '/storage/' + pet.picture;
         document.getElementById('modalName').innerText = pet.name_pet;
         document.getElementById('modalAge').innerText = pet.age_pet;
         document.getElementById('modalGender').innerText = pet.gender;

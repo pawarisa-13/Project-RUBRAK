@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
     <title>Request Table</title>
+    <style>
+         table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
 </head>
 <body>
     <header>
@@ -30,12 +37,54 @@
 
     <div class="header-stripe"></div>
 
-    <h2>Table request here</h2>
-    <div class="pic">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="200" alt="imglogo">
 
-        </div>  
+    <div class="pic"><img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="200" alt="imglogo"></div>
+    <br><br>
+    <h2>Table request here</h2><br>
 
+
+    <table  >
+        <th >
+            <tr>
+                <th>Form ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Pet Experience</th>
+                <th>Other pets</th>
+                <th>Adoption Reason</th>
+                <th>Address</th>
+                <th>Submit Date</th>
+                <th>Status</th>
+            </tr>
+        </th>
+        <td>
+            </tr>
+        @foreach ($request as $item)
+            <tr>
+                <td>{{$item->number_req}}</td>
+                <td>{{$item->user->name}}</td>
+                <td>{{$item->user->email}}</td>
+                <td>{{$item->phone}}</td>
+                <td>{{$item->pet_experience}}</td>
+                <td>{{$item->other_pet}}</td>
+                <td>{{$item->adopt_reason}}</td>
+                <td>{{$item->address_user}}</td>
+                <td>{{$item->created_at}}</td>
+                {{-- <td>{{$item->status_request}}</td> --}}
+                <td><a href="">Approve</a><br><br>
+                <a href="">Reject</a>
+                </td>
+
+                {{-- <td><a href="{{route ('projects.form',$item->id)}}">Edit  </a>
+                <a href="{{route ('projects.destroy',$item->id)}}">Deleted</a>
+                </td> --}}
+
+
+            </tr>
+        @endforeach
+        </td>
+    </table>
 
 </body>
 </html>
