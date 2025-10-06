@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
     <title>Request Table</title>
     <style>
          table, th, td {
@@ -16,19 +17,28 @@
 </head>
 <body>
     <header>
-
-            <div class="logo">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
-            <h4>Rubrak</h4>
+        <div class="logo">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
+            <p>Rubrak</p>
         </div>
+        <div class="nav">
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
-            <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
+            <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
             <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
             <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
-            <li class="menu"><a href="{{route ('profile')}}">Profile</a></li>
-
-        </ul>
+            </ul>
+        </div>
+        <div class="btn">
+            @auth
+            {{-- ถ้าล็อกอินแล้ว --}}
+                <a href="{{route('profile')}}"><button class="btn-header">Hello!, {{ Auth::user()->name }}</button></a>
+            @else
+            {{-- ถ้ายังไม่ล็อกอิน --}}
+            <a href="{{route('login')}}"><button class="btn-header">Sign In</button></a>
+            <a href="{{route('register')}}"><button class="btn-header">Sign Up</button></a>
+            @endauth
+        </div>
     </header>
 
     <table>
@@ -44,9 +54,10 @@
 
 
     <table  >
-        <th >
+
             <tr>
                 <th>Form ID</th>
+                <th>Name Pet</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -57,12 +68,12 @@
                 <th>Submit Date</th>
                 <th>Status</th>
             </tr>
-        </th>
-        <td>
-            </tr>
-        @foreach ($request as $item)
+
+
+        @foreach ($requests as $item)
             <tr>
                 <td>{{$item->number_req}}</td>
+                <td>{{$item->pet->name_pet}}</td>
                 <td>{{$item->user->name}}</td>
                 <td>{{$item->user->email}}</td>
                 <td>{{$item->phone}}</td>
@@ -72,8 +83,16 @@
                 <td>{{$item->address_user}}</td>
                 <td>{{$item->created_at}}</td>
                 {{-- <td>{{$item->status_request}}</td> --}}
-                <td><a href="">Approve</a><br><br>
-                <a href="">Reject</a>
+                <td>
+                    <form action="{{ route('request.approve', ['id' => $item->number_req]) }}" method="POST">
+                        @csrf
+                        <button type="submit">Approve</button>
+                    </form>
+                    <br><br>
+                <form action="{{ route('request.reject', ['id' => $item->number_req]) }}" method="POST">
+                        @csrf
+                        <button type="submit">Reject</button>
+                    </form>
                 </td>
 
                 {{-- <td><a href="{{route ('projects.form',$item->id)}}">Edit  </a>

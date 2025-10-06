@@ -8,9 +8,11 @@
     <title>Pets Page</title>
     {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/pet.css') }}">
+
     {{-- js --}}
     <script>
         window.petsData = @json($pets);
+        window.adoptUrlTemplate = "{{ route('req.view', ':pet_id') }}";
     </script>
     <script src="{{ asset('js/pet-modal.js') }}"></script>
 </head>
@@ -20,7 +22,7 @@
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
             <p>Rubrak</p>
         </div>
-        <div class="nav">     
+        <div class="nav">
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
             <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
@@ -54,19 +56,19 @@
 
         <!-- All -->
         <div class="filter-item">
-            <a href="{{ route('pet.filter') }}" 
+            <a href="{{ route('pet.filter') }}"
             class="filter-btn {{ request('type') == null ? 'active' : '' }}"
             >
             <img src="{{ asset('storage/icon_filter/' . $icons['All']) }}" alt="All" class="btn-icon">
             </a>
-            
+
             <span class="filter-label {{ request('type') == null ? 'active' : '' }}">All</span>
         </div>
 
         <!-- Types -->
         @foreach ($types as $type)
         <div class="filter-item">
-            <a href="{{ route('pet.filter', ['type' => $type]) }}" 
+            <a href="{{ route('pet.filter', ['type' => $type]) }}"
             class="filter-btn {{ request('type') == $type ? 'active' : '' }}">
             <img src="{{ asset('storage/icon_filter/' . $icons[$type]) }}" alt="{{ $type }}" class="btn-icon">
             </a>
@@ -84,7 +86,9 @@
             <h3>{{ $pet->name_pet }}</h3>
             <p>{{ $pet->gender }} | {{ $pet->province }}</p>
             <button onclick="openModal('{{ $pet->pet_id }}')">More Info</button>
+            <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{ route('req.view', ['pet_id' => $pet->pet_id]) }}">Send a request</a></button>
         </div>
+        {{-- <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button> --}}
         @endforeach
     </div>
 
@@ -101,7 +105,7 @@
             <p><strong>Info:</strong> <span id="modalInfo"></span></p>
             <p><strong>Foundation:</strong> <span id="modalFoundation"></span></p>
             <p><strong>Province:</strong> <span id="modalProvince"></span></p>
-            <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button>
+            {{-- <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button> --}}
         </div>
     </div>
 

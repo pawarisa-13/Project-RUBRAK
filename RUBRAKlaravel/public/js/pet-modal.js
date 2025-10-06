@@ -13,6 +13,8 @@ function openModal(pet_id) {
         document.getElementById('modalFoundation').innerText = pet.foundation;
         document.getElementById('modalProvince').innerText = pet.province;
 
+        document.getElementById('adoptLink').href = `/request/form?pet_id=${pet.pet_id}`;
+
         document.getElementById('modal').style.display = 'block';
     }
 }

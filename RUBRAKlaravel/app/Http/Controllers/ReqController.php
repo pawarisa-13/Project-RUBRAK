@@ -35,7 +35,7 @@ class ReqController extends Controller
             'status_request' => 'waiting',
         ]);
 
-        return redirect()->route('pets.index')->with('success','อ่านทำไม');
+        return redirect()->route('pet.filter')->with('success','อ่านทำไม');
     }
 
     public function req($pet_id)
@@ -46,7 +46,34 @@ class ReqController extends Controller
 
     public function ReqTable()
     {
-        $request = RequestAdopt::all();
-        return view('ReqTable',compact('request'));
+        $requests = RequestAdopt::all();
+        return view('ReqTable',compact('requests'));
     }
+
+    public function approve($id)
+{
+    $req = RequestAdopt::findOrFail($id);
+
+    //อนุมัติคำขอปัจจุบัน
+    $req->update(['status_request' => 'approved']);
+
+    //เปลี่ยนสถานะสัตว์เป็น 0
+    Pet::where('pet_id', $req->pet_id)->update(['status' => 0]);
+
+    //ปฏิเสธคำขออื่น
+    RequestAdopt::where('pet_id', $req->pet_id)
+        ->where('number_req', '!=', $req->id)
+        ->update(['status_request' => 'rejected']);
+        RequestAdopt::where('pet_id', $req->pet_id)->delete();
+
+    return back()->with('success', 'อนุมัติเรียบร้อย! สัตว์ถูกซ่อนและปัดคำขออื่นแล้ว');
+}
+public function reject($id)
+{
+    RequestAdopt::where('number_req', $id)->update(['status_request' => 'rejected']);
+    $req = RequestAdopt::findOrFail($id);
+    $req->delete();
+
+    return back()->with('error', 'ปฏิเสธคำขอเรียบร้อย');
+}
 }

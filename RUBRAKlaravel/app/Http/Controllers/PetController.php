@@ -101,14 +101,12 @@ class PetController extends Controller
         return view('pet_user', compact('pets', 'type'));
     }
 
-    public function req($pet_id)
-    {
-        $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
-        $pets = Pet::all();
-
-        return view('Request', compact('pets'));
+    public function req($pet_id){
+    $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
+    return view('Request', compact('pet'));
     }
-    public function request(Request $req)
+    
+     public function request(Request $req)
     {
         $req->validate([
             'pet_id'         => [
