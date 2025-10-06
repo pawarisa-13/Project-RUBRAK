@@ -64,7 +64,7 @@ Route::middleware([
     Route::get('/information', [AdminController::class, 'infoTable'])->middleware(CheckRole::class)->name('infoTable');
     Route::get('/reqTable', [ReqController::class, 'reqTable'])->middleware(CheckRole::class)->name('reqTable');
     Route::get('/pets/{id}/edit', [AdminController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
-
+    Route::get('/pets/information', [PetController::class, 'information'])->name('pets.information');
 
     //Controller
     Route::get('/profile', [Controller::class, 'profile'])->name('profile');

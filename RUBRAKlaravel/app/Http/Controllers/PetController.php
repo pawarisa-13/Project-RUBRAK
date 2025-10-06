@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Pet;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
-use App\Models\RequestAdopt ;
+use App\Models\RequestAdopt;
+
 class PetController extends Controller
 {
     public function index()
@@ -89,7 +90,8 @@ class PetController extends Controller
     //     return view('Request');
     //  }
 
-     public function pets_user(Request $request){
+    public function pets_user(Request $request)
+    {
         $type = $request->input('type');
         if ($type) {
             $pets = Pet::where('type', $type)->get();
@@ -99,18 +101,22 @@ class PetController extends Controller
         return view('pet_user', compact('pets', 'type'));
     }
 
-    public function req($pet_id){
+    public function req($pet_id)
+    {
         $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
         $pets = Pet::all();
 
-        return view('Request',compact('pets'));
-     }
-     public function request(Request $req)
+        return view('Request', compact('pets'));
+    }
+    public function request(Request $req)
     {
         $req->validate([
             'pet_id'         => [
-                'required','integer','exists:pets,pet_id',
-                Rule::unique('requests')->where(fn($q) =>
+                'required',
+                'integer',
+                'exists:pets,pet_id',
+                Rule::unique('requests')->where(
+                    fn($q) =>
                     $q->where('user_id', auth()->id())
                 )
             ],
@@ -130,6 +136,22 @@ class PetController extends Controller
             'status_request' => 'submitted',
         ]);
 
-        return redirect()->route('pets.index')->with('success','ส่งคำขอรับเลี้ยงเรียบร้อย!');
+        return redirect()->route('pets.index')->with('success', 'ส่งคำขอรับเลี้ยงเรียบร้อย!');
+    }
+
+    // Filter-infrom
+    public function information(Request $request)
+    {
+        $filter = $request->input('filter-inform', 'all');
+
+        if ($filter === 'available') {
+            $pets = Pet::where('status', 1)->get(); // Available
+        } elseif ($filter === 'adopted') {
+            $pets = Pet::where('status', 0)->get(); // Adopted
+        } else {
+            $pets = Pet::all(); // ทั้งหมด
+        }
+
+        return view('information', compact('pets', 'filter'));
     }
 }
