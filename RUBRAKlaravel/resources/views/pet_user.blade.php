@@ -17,6 +17,15 @@
     <script src="{{ asset('js/pet-modal.js') }}"></script>
 </head>
 <body>
+    @if (session('success'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('success') }}</p>
+            </div>
+        </div>
+    @endif
+    
     <header>
         <div class="logo">
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">

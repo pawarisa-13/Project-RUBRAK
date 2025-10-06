@@ -35,7 +35,7 @@ class ReqController extends Controller
             'status_request' => 'waiting',
         ]);
 
-        return redirect()->route('pet.filter')->with('success','อ่านทำไม');
+        return redirect()->route('pet.filter')->with('success','ส่งคำขอรับเลี้ยงเรียบร้อย!');
     }
 
     public function req($pet_id)
