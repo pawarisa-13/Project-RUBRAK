@@ -47,7 +47,9 @@ Route::middleware([
 
 
     //User
-    Route::get('/req', [PetController::class, 'req'])->name('request.form');
+    //Route::get('/req', [PetController::class, 'req'])->name('request.form');
+    Route::post('/Adopt', [ReqController::class, 'request'])->name('request.form');
+    Route::get('/Adopt/{pet_id}', [ReqController::class, 'req'])->name('req.view');
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
     Route::get('/donate', [UserController::class, 'donate'])->name('donate');
     //pets_user
@@ -59,6 +61,8 @@ Route::middleware([
     Route::post('/pet', [PetController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
     Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
     Route::delete('/pets/{id}', [PetController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
+    Route::post('/requests/{id}/approve', [ReqController::class, 'approve'])->name('request.approve');
+    Route::post('/requests/{id}/reject', [ReqController::class, 'reject'])->name('request.reject');
 
     //admin-profile
     Route::get('/information', [AdminController::class, 'infoTable'])->middleware(CheckRole::class)->name('infoTable');

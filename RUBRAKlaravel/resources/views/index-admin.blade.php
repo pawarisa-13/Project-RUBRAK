@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Post</title>
     <style>
@@ -42,15 +43,12 @@
 
         .custom-select {
             appearance: none;
-            /* เอาลูกศร default ของ browser ออก */
+            
             -webkit-appearance: none;
             -moz-appearance: none;
-
             border-radius: 25px;
             background-color: #364C84;
-            /* สีพื้นหลัง */
             color: white;
-            /* สีตัวอักษร */
             padding: 10px 40px 10px 15px;
             border: none;
             font-size: 16px;
@@ -108,25 +106,33 @@
 </head>
 
 <body>
-    <header>
-
+   <header>
         <div class="logo">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="36" alt="imglogo">
-            <h4>Rubrak</h4>
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
+            <p>Rubrak</p>
         </div>
+        <div class="nav">
         <ul>
-            <li class="menu"><a href="{{ route('home') }}">Home</a></li>
-            <li class="menu"><a href="{{ route('pets.index') }}">Pet</a></li>
-            <li class="menu"><a href="{{ route('donate') }}">Donate</a></li>
-            <li class="menu"><a href="{{ route('contact') }}">Contact Us</a></li>
-            <li class="menu"><a href="{{ route('profile') }}">Profile</a></li>
-
-        </ul>
-
+            <li class="menu"><a href="{{route ('home')}}">Home</a></li>
+            <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
+            <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
+            <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="btn">
+            @auth
+            {{-- ถ้าล็อกอินแล้ว --}}
+                <a href="{{route('profile')}}"><button class="btn-header">Hello!, {{ Auth::user()->name }}</button></a>
+            @else
+            {{-- ถ้ายังไม่ล็อกอิน --}}
+            <a href="{{route('login')}}"><button class="btn-header">Sign In</button></a>
+            <a href="{{route('register')}}"><button class="btn-header">Sign Up</button></a>
+            @endauth
+        </div>
     </header>
     <div class="header-stripe"></div>
 
-    <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100">
+    {{-- <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100"> --}}
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 
         <div class="col-md-6">
@@ -138,6 +144,8 @@
                         <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="100" alt="Logo">
                     </div>
                     {{-- </div> --}}
+
+                    </form>
                     <form action="{{ route('pets.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">

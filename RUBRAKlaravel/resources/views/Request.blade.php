@@ -5,52 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/pet.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
     <title>Request</title>
 </head>
 <body>
+    @if (session('success'))
+<div class="preem" id="preem-popup">
+    <div class="preem-content">
+        <span class="close-btn" onclick="closePreem()">&times;</span>
+        <p>{{ session('success') }}</p>
+    </div>
+</div>
+@endif
+
 
     <header>
-
-            <div class="logo">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
-            <h4>Rubrak</h4>
+        <div class="logo">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
+            <p>Rubrak</p>
         </div>
+        <div class="nav">
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
-            <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
+            <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
             <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
             <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
-            <li class="menu"><a href="{{route ('profile')}}">Profile</a></li>
-
-        </ul>
+            </ul>
+        </div>
+        <div class="btn">
+            @auth
+            {{-- ถ้าล็อกอินแล้ว --}}
+                <a href="{{route('profile')}}"><button class="btn-header">Hello!, {{ Auth::user()->name }}</button></a>
+            @else
+            {{-- ถ้ายังไม่ล็อกอิน --}}
+            <a href="{{route('login')}}"><button class="btn-header">Sign In</button></a>
+            <a href="{{route('register')}}"><button class="btn-header">Sign Up</button></a>
+            @endauth
+        </div>
     </header>
     <div class="header-stripe"></div>
-    <form method="POST" action="">
-    @csrf
+    <form action="{{ route('request.form') }}" method="POST">
+        @csrf
+        <h2>Pet Adoption Form</h2> <br>
+        <input type="hidden" name="pet_id" value="{{ $pet->pet_id }}">
 
-    <label>Pet Experience :</label><br>
-    <input type="text" name="pet_experience" required><br><br>
+        <label>Pet Experience </label><br>
+        <textarea name="pet_experience" required placeholder="please tell us about your pet experience"></textarea>
+        <br><br>
 
-    <label>Other Pets :</label><br>
-    <input type="text" name="other_pets" required><br><br>
+        <label>Other Pets </label><br>
+        <textarea  name="other_pet" required placeholder="How many pets you have,and what their type"></textarea>
+        {{-- <input type="text" name="other_pet" required> --}}
+        <br><br>
 
-    <label>Adoption Reason :</label><br>
-    <input type="text" name="adoption_reason" required><br><br>
+        <label>Adopt Reason</label><br>
+        <textarea name="adopt_reason" required placeholder="Why you want to adopt {{$pet->name_pet}}"></textarea>
+        <br><br>
 
-    <label>Address :</label><br>
-    <input type="text" name="address" required><br><br>
+        <label>Phone</label><br>
+        <input type="tel" name="phone" required placeholder="0112233444"></input>
+        <br><br>
 
+        <label>Address</label><br>
+        <textarea name="address_user" required placeholder="your address"></textarea>
+        <br><br>
 
-    <input type="checkbox" name="housing_type[]" value="Condo"> Condo
-    <input type="checkbox" name="housing_type[]" value="House"> House
-    <input type="checkbox" name="housing_type[]" value="Etc"> Etc<br>
+        <button class="preem" type="submit">Submit</button>
+  </form>
 
-    <!-- hidden field เอาข้อมูล user จาก auth -->
-    <input type="hidden" name="user_name" value="{{ Auth::user()->name }}">
-    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
-    <br>
-    <button type="submit">Submit</button>
-</form>
 
 
 </body>
