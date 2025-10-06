@@ -69,7 +69,7 @@ class PetController extends Controller
 
         $p->update($data);
 
-        return redirect('/pets')->with('success', 'Pet updated successfully!');
+        return redirect('/pet')->with('success', 'Pet updated successfully!');
     }
     public function destroy($id)
     {
