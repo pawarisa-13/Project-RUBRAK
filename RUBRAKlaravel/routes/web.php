@@ -47,6 +47,7 @@ Route::middleware([
 
 
     //User
+    //Route::get('/req', [PetController::class, 'req'])->name('request.form');
     Route::post('/Adopt', [ReqController::class, 'request'])->name('request.form');
     Route::get('/Adopt/{pet_id}', [ReqController::class, 'req'])->name('req.view');
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');

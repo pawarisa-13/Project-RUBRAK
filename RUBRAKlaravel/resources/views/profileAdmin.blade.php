@@ -1,26 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/header.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Rubrak</title>
+    <style>
+        .btn {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .menu-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 40px;
+
+        }
+
+        .sidebar {
+            background-color: #fdfcf4;
+            border: 1.5px solid #364c84;
+            border-radius: 10px;
+            width: 180px;
+            height: 150px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+            /* จัดไอคอนและข้อความให้อยู่ตรงกลางแนวตั้ง */
+            display: flex;
+            flex-direction: column;
+            /* สำคัญ — ทำให้ไอคอนอยู่บนข้อความอยู่ล่าง */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar .icon {
+            font-size: 32px;
+            color: #364c84;
+            margin-bottom: 10px;
+        }
+
+        /* .sidebar a {
+            display: flex;
+            text-decoration: none;
+            background-color: #dcdcdc;
+            color: #364C84;
+            font-weight: 500;
+            padding: 5px 5px;
+            margin: 5px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.2s ease-in-out;
+            justify-content: center;
+        } */
+
+        .sidebar:hover {
+            background-color: #364c84;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+       
+        .sidebar:hover .icon {
+            color: #fdfcf4;
+        }
+
+        .sidebar:hover a {
+            color: #fdfcf4;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  width="36" alt="imglogo">
-            <h4>Rubrak</h4>
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="imglogo">
+            <p>Rubrak</p>
         </div>
-        <ul>
-            <li class="menu"><a href="{{route ('home')}}">Home</a></li>
-            <li class="menu"><a href="{{route ('pets.index')}}">Pet</a></li>
-            <li class="menu"><a href="{{route ('donate')}}">Donate</a></li>
-            <li class="menu"><a href="{{route ('contact')}}">Contact Us</a></li>
-            <li class="menu"><a href="{{route ('profile')}}">Profile</a></li>
-        </ul>
+        <div class="nav">
+            <ul>
+                <li class="menu"><a href="{{ route('home') }}">Home</a></li>
+                <li class="menu"><a href="{{ route('pet.filter') }}">Pet</a></li>
+                <li class="menu"><a href="{{ route('donate') }}">Donate</a></li>
+                <li class="menu"><a href="{{ route('contact') }}">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="btn">
+            @auth
+                {{-- ถ้าล็อกอินแล้ว --}}
+                <a href="{{ route('profile') }}"><button class="btn-header">Hello!, {{ Auth::user()->name }}</button></a>
+            @else
+                {{-- ถ้ายังไม่ล็อกอิน --}}
+                <a href="{{ route('login') }}"><button class="btn-header">Sign In</button></a>
+                <a href="{{ route('register') }}"><button class="btn-header">Sign Up</button></a>
+            @endauth
+        </div>
     </header>
-    <div class="header-stripe"></div>
 
     <main>
         <div>
@@ -30,17 +115,31 @@
         <div>
             <h1>Profile Admin</h1>
             <br><br>
-            <a href="{{route ('admin.pets.index')}}">Add pet</a><br><br>
-            <a href="{{route ('infoTable')}}">Information</a><br><br>
-            <a href="{{route ('reqTable')}}">Request</a><br><br>
+            <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;" class="menu-cards">
+                <div class="sidebar">
+                    <i class="fa-solid fa-dog icon"></i>
+                    <a href="{{ route('admin.pets.index') }}" style="text-decoration: none;">Add pet</a>
+                </div>
+                <div class="sidebar">
+                    <i class="fa-solid fa-table icon"></i>
+                    <a href="{{ route('infoTable') }}" style="text-decoration: none;">Information</a>
+                </div>
+                <div class="sidebar">
+                    <i class="fa-solid fa-envelope-open-text icon"></i>
+                    <a href="{{ route('reqTable') }}" style="text-decoration: none;">Request</a>
+                </div>
+            </div>
             <br><br>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Logout</button>
-            </form>
+            <div class="btn">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-danger">Logout</button>
+                </form>
+            </div>
 
 
         </div>
     </main>
 </body>
+
 </html>
