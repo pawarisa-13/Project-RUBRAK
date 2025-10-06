@@ -134,7 +134,7 @@ class PetController extends Controller
             'status_request' => 'submitted',
         ]);
 
-        return redirect()->route('pets.index')->with('success', 'ส่งคำขอรับเลี้ยงเรียบร้อย!');
+        return redirect()->route('pets.index')->with('success', 'Adoption request submitted successfully!');
     }
 
     // Filter-infrom
