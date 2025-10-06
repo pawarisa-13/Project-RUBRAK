@@ -7,19 +7,11 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/home.css')}}">
     <link rel="stylesheet" href="{{ asset('css/pet.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/request.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Request</title>
 </head>
 <body>
-    @if (session('success'))
-<div class="preem" id="preem-popup">
-    <div class="preem-content">
-        <span class="close-btn" onclick="closePreem()">&times;</span>
-        <p>{{ session('success') }}</p>
-    </div>
-</div>
-@endif
-
-
     <header>
         <div class="logo">
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
@@ -45,34 +37,54 @@
         </div>
     </header>
     <div class="header-stripe"></div>
-    <form action="{{ route('request.form') }}" method="POST">
-        @csrf
-        <h2>Pet Adoption Form</h2> <br>
-        <input type="hidden" name="pet_id" value="{{ $pet->pet_id }}">
 
-        <label>Pet Experience </label><br>
-        <textarea name="pet_experience" required placeholder="please tell us about your pet experience"></textarea>
-        <br><br>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+  <div class="col-md-6">
+    <div class="card p-4">
 
-        <label>Other Pets </label><br>
-        <textarea  name="other_pet" required placeholder="How many pets you have,and what their type"></textarea>
-        {{-- <input type="text" name="other_pet" required> --}}
-        <br><br>
+        <div class="text-center mb-4">
+            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="100" alt="Logo">
+            <h3 class="mt-3">Pet Adoption Form</h3>
+            <p class="text-muted">Please fill in your details to apply for adopting {{ $pet->name_pet }}</p>
+        </div>
+      
+        <form action="{{ route('request.form') }}" method="POST">
+            @csrf
+            <input type="hidden" name="pet_id" value="{{ $pet->pet_id }}">
 
-        <label>Adopt Reason</label><br>
-        <textarea name="adopt_reason" required placeholder="Why you want to adopt {{$pet->name_pet}}"></textarea>
-        <br><br>
+            <div class="form-group">
+                <label>Pet Experience</label>
+                <textarea name="pet_experience" class="form-control" required placeholder="Please tell us about your pet experience"></textarea>
+            </div>
 
-        <label>Phone</label><br>
-        <input type="tel" name="phone" required placeholder="0112233444"></input>
-        <br><br>
+            <div class="form-group mb-3 flex-column">
+                <label>Other Pets</label>
+                <textarea name="other_pet" class="form-control" required placeholder="How many pets you have, and what their type"></textarea>
+            </div>
 
-        <label>Address</label><br>
-        <textarea name="address_user" required placeholder="your address"></textarea>
-        <br><br>
+            <div class="form-group mb-3 flex-column">
+                <label>Adopt Reason</label>
+                <textarea name="adopt_reason" class="form-control" required placeholder="Why you want to adopt {{ $pet->name_pet }}"></textarea>
+            </div>
 
-        <button class="preem" type="submit">Submit</button>
-  </form>
+            <div class="form-group mb-3 flex-column">
+                <label>Phone</label>
+                <input type="tel" name="phone" class="form-control" required placeholder="0123456789">
+            </div>
+
+            <div class="form-group mb-4 flex-column">
+                <label>Address</label>
+                <textarea name="address_user" class="form-control" required placeholder="Your address"></textarea>
+            </div>
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+
 
 
 

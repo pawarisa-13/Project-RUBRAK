@@ -64,6 +64,7 @@ Route::middleware([
     Route::post('/requests/{id}/approve', [ReqController::class, 'approve'])->name('request.approve');
     Route::post('/requests/{id}/reject', [ReqController::class, 'reject'])->name('request.reject');
 
+
     //admin-profile
     Route::get('/information', [AdminController::class, 'infoTable'])->middleware(CheckRole::class)->name('infoTable');
     Route::get('/reqTable', [ReqController::class, 'reqTable'])->middleware(CheckRole::class)->name('reqTable');

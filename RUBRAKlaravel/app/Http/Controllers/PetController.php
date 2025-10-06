@@ -101,14 +101,12 @@ class PetController extends Controller
         return view('pet_user', compact('pets', 'type'));
     }
 
-    public function req($pet_id)
-    {
-        $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
-        $pets = Pet::all();
-
-        return view('Request', compact('pets'));
+    public function req($pet_id){
+    $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
+    return view('Request', compact('pet'));
     }
-    public function request(Request $req)
+    
+     public function request(Request $req)
     {
         $req->validate([
             'pet_id'         => [
@@ -136,7 +134,7 @@ class PetController extends Controller
             'status_request' => 'submitted',
         ]);
 
-        return redirect()->route('pets.index')->with('success', 'ส่งคำขอรับเลี้ยงเรียบร้อย!');
+        return redirect()->route('pets.index')->with('success', 'Adoption request submitted successfully!');
     }
 
     // Filter-infrom
