@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/contact.css')}}">
     <title>Rubrak</title>
 </head>
 <body>
@@ -22,59 +23,64 @@
         </div>
         <div class="btn">
             @auth
-            {{-- ถ้าล็อกอินแล้ว --}}
+            {{-- ล็อกอินแล้ว --}}
                 <a href="{{route('profile')}}"><button class="btn-header">Hello!, {{ Auth::user()->name }}</button></a>
             @else
-            {{-- ถ้ายังไม่ล็อกอิน --}}
+            {{-- ยังไม่ล็อกอิน --}}
             <a href="{{route('login')}}"><button class="btn-header">Sign In</button></a>
             <a href="{{route('register')}}"><button class="btn-header">Sign Up</button></a>
             @endauth
         </div>
     </header>
-
-
-    <main>
-        <div>
-            <img src="{{ asset('Pic-rubrak/homepic.jpg') }}" alt="contactpic" width="635" height="741" style="float: right; margin-left: 10px;">
+        <div class="right">
+            <aside>
+                <img src="{{ asset('Pic-rubrak/homepic.jpg') }}" alt="contactpic" width="635" height="741" style="float: right; margin-left: 10px;">
+            </aside>
         </div>
-        <div class="contact-context">
-            <h1>Contact Page</h1><br>
-            <p>Every dog deserves a second chance. They are waiting patiently for someone to open their heart and home.</p>
-        </div>
-        <div class="add-contact">
+        <section class="contact-context">
+            <center>
+                <h1>Contact Page</h1>
+                <p>Every dog deserves a second chance. They are waiting
+                    <br>patiently for someone to open their heart and home.</p>
+            </center>
+        </section>
+        <article class="article">
+            <div class="left-con">
+            <div class="sub-contact">
             <h2>Address</h2>
-            <p>45 Maplewood Avenue Greenhill, NY 12845 United States</p>
-            <p>18 Rosewood Lane Riverdale, London SW3 7TP United Kingdom</p>
-        </div>
-        <div class="gen-contect">
+            <p>45 Maplewood Avenue Greenhill,<br> NY 12845 United States</p>
+            <p>18 Rosewood Lane Riverdale,<br> London SW3 7TP United Kingdom</p>
+            </div>
+            <div class="sub-contact">
             <h2>General inquiries</h2>
             <p>info@sunnytechsolutions.com <br>Phone: +1 (408) 555-9274</p>
-            <br>
             <p>emily.johnson@examplemail.com <br>Phone: +1 (212) 555-3489</p>
-        </div>
-        <div class="inter-contact">
-            <h2></h2>
+            </div>
+            <div class="sub-contact">
+            <h2>Contact & interships</h2>
             <p>careers@oceanbreezeinc.com</p>
-        </div>
-        <div class="social">
+            </div>
+            </div>
+        
+            <div class="social-contact">
             <h2>Follow us</h2>
             <div class="media">
-                <img src="" alt="">
+                <img src="{{ asset('Pic-rubrak/TW.png') }}" alt="TW" >
                 <p>TW</p>
             </div>
             <div class="media">
-                <img src="" alt="">
+                <img src="{{ asset('Pic-rubrak/FB.png') }}" alt="FB" >
                 <p>FB</p>
             </div>
             <div class="media">
-                <img src="" alt="">
+                <img src="{{ asset('Pic-rubrak/IG.png') }}" alt="IG" >
                 <p>IG</p>
             </div>
             <div class="media">
-                <img src="" alt="">
+                <img src="{{ asset('Pic-rubrak/TT.png') }}" alt="TT" >
                 <p>TT</p>
             </div>
-        </div>
-    </main>
+            </div>
+        </article>
 </body>
 </html>

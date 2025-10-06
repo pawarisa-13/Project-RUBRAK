@@ -1,0 +1,60 @@
+* body {
+    font-family: 'Prompt', sans-serif;
+    font-size: small;
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h2{
+    color: #284a8f;
+}
+.contact-context h1{
+    font-size: 80px;
+    color: #284a8f;
+}
+section{
+    margin-top: 35px;
+    margin-bottom: 40px;
+    font-size: 1.5em;
+}
+.article{
+    display: flex;
+    flex-direction: row;
+    /* align-items: flex-start; */
+    justify-content: center;
+    margin-left: auto;
+    margin-left: auto;
+    gap: 150px;
+}
+.left-con{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    text-align: left;
+}
+.sub-contact{
+    margin-bottom: 20px;
+}
+.left-con p{
+    font-size: medium;
+    margin-top: 5px;
+    text-align: left;
+}
+.social-contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.media{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    
+}
+.media img {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+}
