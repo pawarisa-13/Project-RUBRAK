@@ -54,6 +54,11 @@ section{
     margin: 10px;
     
 }
+.media a{
+    color: black;
+    text-decoration-line: none;
+    text-decoration: black;
+}
 .media img {
     width: 35px;
     height: 35px;
