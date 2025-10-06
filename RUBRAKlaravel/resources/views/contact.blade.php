@@ -65,20 +65,20 @@
             <div class="social-contact">
             <h2>Follow us</h2>
             <div class="media">
-                <img src="{{ asset('Pic-rubrak/TW.png') }}" alt="TW" >
-                <p>TW</p>
+                <a href="https://x.com/i/flow/login"><img src="{{ asset('Pic-rubrak/TW.png') }}" alt="TW" ></a>
+                <a href="https://x.com/i/flow/login"><p>TW</p></a>
             </div>
             <div class="media">
-                <img src="{{ asset('Pic-rubrak/FB.png') }}" alt="FB" >
-                <p>FB</p>
+                <a href="https://www.facebook.com/login/?locale=th_TH"><img src="{{ asset('Pic-rubrak/FB.png') }}" alt="FB" ></a>
+                <a href="https://www.facebook.com/login/?locale=th_TH"><p>FB</p></a>
             </div>
             <div class="media">
-                <img src="{{ asset('Pic-rubrak/IG.png') }}" alt="IG" >
-                <p>IG</p>
+                <a href="https://www.instagram.com/accounts/login/"><img src="{{ asset('Pic-rubrak/IG.png') }}" alt="IG" ></a>
+                <a href="https://www.instagram.com/accounts/login/"><p>IG</p></a>
             </div>
             <div class="media">
-                <img src="{{ asset('Pic-rubrak/TT.png') }}" alt="TT" >
-                <p>TT</p>
+                <a href="https://www.tiktok.com/login"><img src="{{ asset('Pic-rubrak/TT.png') }}" alt="TT" ></a>
+                <a href="https://www.tiktok.com/login"><p>TT</p></a>
             </div>
             </div>
         </article>
