@@ -9,13 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Request Table</title>
-    {{-- <style>
-         table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-
-    </style> --}}
+    <link rel="stylesheet" href="{{ asset('css/pet.css') }}">
+    <script src="{{ asset('js/alert.js') }}"></script>
 </head>
 <body>
     @if (session('success'))
