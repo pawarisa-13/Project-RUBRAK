@@ -52,6 +52,9 @@ Route::middleware([
     Route::get('/Adopt/{pet_id}', [ReqController::class, 'req'])->name('req.view');
     Route::get('/contact', [UserController::class, 'contact'])->name('contact');
     Route::get('/donate', [UserController::class, 'donate'])->name('donate');
+    Route::get('/profile', [UserController::class, 'show'])->name('profile.show');
+    Route::put('/profile/update', [UserController::class, 'update'])->name('profile.update');
+    Route::get('/your_request', [UserController::class, 'your_request'])->name('ur_req');
     //pets_user
     Route::get('/pet', [Pet_UserController::class, "index"])->name('pet.filter'); //**** */
 
@@ -72,9 +75,10 @@ Route::middleware([
     Route::get('/pets/information', [PetController::class, 'information'])->name('pets.information');
 
     //Controller
-    Route::get('/profile', [Controller::class, 'profile'])->name('profile');
+    Route::get('/profile', [Controller::class, 'show'])->name('profile');
     Route::get('/Rubrakhome', [Controller::class, 'home'])->name('home');
     Route::get('/pets', [PetController::class, 'pets_user'])->name('pets.index');
+    
 });
 
 

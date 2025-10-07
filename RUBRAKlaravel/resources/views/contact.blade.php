@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/contact.css')}}">
     <title>Rubrak</title>
@@ -34,7 +36,7 @@
     </header>
         <div class="right">
             <aside>
-                <img src="{{ asset('Pic-rubrak/homepic.jpg') }}" alt="contactpic" width="635" height="741" style="float: right; margin-left: 10px;">
+                <img src="{{ asset('Pic-rubrak/condog.jpg') }}" alt="contactpic" width="635" height="741" style="float: right; margin-left: 10px;">
             </aside>
         </div>
         <section class="contact-context">

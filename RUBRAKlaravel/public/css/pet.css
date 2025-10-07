@@ -1,5 +1,7 @@
         body {
             font-family: Arial, sans-serif;
+            font-family: 'Prompt', sans-serif;
+            background: #fff;
             color: #364C84;
         }
         /* Card ของสัตว์แต่ละตัว */

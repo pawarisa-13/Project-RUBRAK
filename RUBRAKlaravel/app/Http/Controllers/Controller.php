@@ -33,4 +33,8 @@ class Controller extends BaseController
          $pets = Pet::all();
          return view('Showpets', compact('pets'));
      }
+    public function show()
+    {
+        return view('profileUser');
+    }
 }

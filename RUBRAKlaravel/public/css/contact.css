@@ -65,3 +65,7 @@ section{
     height: 35px;
     margin-bottom: 5px;
 }
+.right img{
+    max-width: 100%; 
+    height: auto;
+}
