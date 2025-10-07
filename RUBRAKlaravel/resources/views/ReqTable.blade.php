@@ -18,6 +18,14 @@
     </style> --}}
 </head>
 <body>
+    @if (session('success'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('success') }}</p>
+            </div>
+        </div>
+    @endif
     <header>
         <div class="logo">
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
@@ -57,14 +65,27 @@
         <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="200" alt="imglogo">
     </div>
     <br><br>
-    <h2>Table request here</h2><br>
+
 
 <div class="container mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Pet Request</h2>
+    <div class="filter">
+    <form method="GET" action="{{ route('reqTable') }}" >
+    <select class="btn btn-sm btn-outline-primary" name="status" onchange="this.form.submit()" >
+        <option value="all"      {{ $filter==='all' ? 'selected' : '' }}>All</option>
+        <option value="waiting"  {{ $filter==='waiting' ? 'selected' : '' }}>Waiting</option>
+        <option value="approved" {{ $filter==='approved' ? 'selected' : '' }}>Approved</option>
+        <option value="rejected" {{ $filter==='rejected' ? 'selected' : '' }}>Rejected</option>
+    </select>
+    </div>
+</div>
+</form>
 
     <table class="table table-bordered table-hover align-middle text-center table-striped" >
         <thead class="table-primary">
         <tr>
-            <th>Form ID</th>
+
             <th>Name Pet</th>
             <th>Name</th>
             <th>Email</th>
@@ -75,15 +96,23 @@
             <th>Address</th>
             <th>Submit Date</th>
             <th>Status</th>
+            <th>Process</th>
         </tr>
 
         </thead>
 
-
+        <tbody>
+             @if($requests->isEmpty())
+            <tr>
+                 <td colspan="12">{{-- <td > colspan="11" style="text-align:center; color:#888;" --}}
+                    No request
+                </td>
+            </tr>
+        @else
 
         @foreach ($requests as $item)
             <tr>
-                <td>{{$item->number_req}}</td>
+
                 <td>{{$item->pet->name_pet}}</td>
                 <td>{{$item->user->name}}</td>
                 <td>{{$item->user->email}}</td>
@@ -92,30 +121,35 @@
                 <td>{{$item->other_pet}}</td>
                 <td>{{$item->adopt_reason}}</td>
                 <td>{{$item->address_user}}</td>
-                <td>{{$item->created_at}}</td>
+                <td>{{$item->created_at->format('j M Y H:i')}}</td>
+                <td>{{$item->status_request}}</td>
                 {{-- <td>{{$item->status_request}}</td> --}}
                 <td>
+                @php
+                    $pc = ($item->status_request === 'waiting') ;
+                @endphp
+
+                @if($pc)
+
                     <form action="{{ route('request.approve', ['id' => $item->number_req]) }}" method="POST"
                         onsubmit="return confirm('Are you sure to approve ?')" style="margin:0;">
                         @csrf
-                        <button class="btn btn-sm btn-outline-success"  type="submit">Approve</button>
+                        <button class="btn btn-sm btn-outline-success"  type="submit" style="width: 75px">Approve</button>
                     </form>
                     <br>
                 <form action="{{ route('request.reject', ['id' => $item->number_req]) }}" method="POST"
                     onsubmit="return confirm('Are you sure to reject ?')" style="margin:0;">
                         @csrf
-                        <button class="btn btn-sm btn-outline-danger"  type="submit">Reject</button>
+                        <button class="btn btn-sm btn-outline-danger"  type="submit" style="width: 75px">Reject</button>
                     </form>
                 </td>
-
-                {{-- <td><a href="{{route ('projects.form',$item->id)}}">Edit  </a>
-                <a href="{{route ('projects.destroy',$item->id)}}">Deleted</a>
-                </td> --}}
-
-
+                @else
+                {{$item->deleted_at->format('j M Y H:i')}}
+                @endif
             </tr>
-        @endforeach
-        </td>
+         @endforeach
+         @endif
+         </tbody>
     </table>
     <br><a href="{{ url('http://127.0.0.1:8000/profile') }}"class="btn btn-sm btn-primary">Back</a>
 </div>

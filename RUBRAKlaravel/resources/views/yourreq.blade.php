@@ -87,12 +87,13 @@
 
                 @if ($pc)
                     <div class="reqEdit">
-                        <button class="btn btn-sm btn-outline-primary" style="width: 75px" ><a href="{{route('requests.edit',['id' => $req->number_req])}}">Edit</button></a>
+                        <a href="{{route('requests.edit',['id' => $req->number_req])}}"class="btn btn-outline-primary" style="width: 75px">Edit</a>
+                        {{-- <button class="btn btn-sm btn-outline-primary" style="width: 75px" ><a href="{{route('requests.edit',['id' => $req->number_req])}}">Edit</button></a> --}}
                     <form action="{{route('req.destroy',['id' => $req->number_req])}}" method="POST"
                         onsubmit="return confirm('Are you sure to cancel ?')" style="margin:0;">
                         @csrf
                         @method('DELETE')
-                    <button class="btn btn-sm btn-outline-danger"  type="submit" style="width: 75px">Cancel</button>
+                    <button class="btn btn-sm btn-outline-danger"  type="submit" style="width:0.375rem rborder-radius: 0.375rem">Cancel</button>
                     </form>
                     </div>
                 @else

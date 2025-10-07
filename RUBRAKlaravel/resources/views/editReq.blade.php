@@ -52,36 +52,46 @@
     <div class="card p-4">
 
     <div class="text-center mb-4">
-            <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="100" alt="Logo">
-            <h3>Pet Adoption Edit Form</h3>
+    <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="100" alt="Logo">
+    <h3>Pet Adoption Edit Form</h3>
+
     <form action="{{ route('requests.update', ['id' => $rd->getKey()]) }}" method="POST">
-    @csrf
-    @method('PUT')
+         @csrf
+        @method('PUT')
+        <div class="form-group mb-3 flex-column">
+                <label>Pet Experience</label>
+                <input type="text" name="pet_experience" class="form-control" value="{{ old('pet_experience', $rd->pet_experience) }}">
+            </div>
 
-    <div>
-        <label>Pet Experience</label>
-        <input type="text" name="pet_experience" value="{{ old('pet_experience', $rd->pet_experience) }}"><br>
+            <div class="form-group mb-3 flex-column">
+                <label>Other Pets</label>
+                <input type="text" name="other_pet" class="form-control" value="{{ old('other_pet', $rd->other_pet) }}" required>
+            </div>
 
+            <div class="form-group mb-3 flex-column">
+                <label>Adopt Reason</label>
+                <input type="text" name="adopt_reason" class="form-control" value="{{ old('adopt_reason', $rd->adopt_reason) }}" required>
+            </div>
 
-        <label>Other Pets</label>
-        <input type="text" name="other_pet" value="{{ old('other_pet', $rd->other_pet) }}" required><br>
+            <div class="form-group mb-3 flex-column">
+                <label>Phone</label>
+                <input type="tel" name="phone" class="form-control" value="{{ old('phone', $rd->phone) }}" required>
+            </div>
 
+            <div class="form-group mb-4 flex-column">
+                <label>Address</label>
+                <input type="text" name="address_user" class="form-control" value="{{ old('address_user', $rd->address_user) }}" required>
+        </div>
 
-
-        <label>Adopt Reason</label>
-        <input type="text" name="adopt_reason" value="{{ old('adopt_reason', $rd->adopt_reason) }}" required><br>
-
-        <label>Phone</label>
-        <input type="text" name="phone" value="{{ old('phone', $rd->phone) }}" required><br>
-
-        <label>Adress</label>
-        <input type="text" name="address_user" value="{{ old('address_user', $rd->address_user) }}" required><br>
-    </div>
-    <br>
-    <button type="submit" class="btn btn-outline-primary">Submit</button>
-    </div>
+        <div class="btn-edit">
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <a href="{{ route('ur_req')}}" class="btn btn-outline-primary" style="width: 120px">Back</a>
+            {{-- <button class="btn btn-outline-primary" action="{{ route('ur_req')}}"><a href="http:{{ route('ur_req')}}">Back</a></button> --}}
+            
+        </div>
+       
+        </div>
     </form>
-    <a href="{{ route('ur_req')}}"class="btn btn-sm btn-primary">Back</a>
     </div>
   </div>
 </div>

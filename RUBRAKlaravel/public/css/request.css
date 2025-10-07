@@ -75,5 +75,22 @@ textarea.form-control {
 .btn-submit:hover {
     background-color: #2c3c6a !important;
 }
+.btn-edit{
+  display: inline-flex;;
+  flex-direction: row;
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.btn-edit button,a{
+  width: 120px !important;
+  color: #364C84 !important;
+  border-color: #364C84 !important;
+}
+.btn-edit button:hover{
+  background-color: #2c3c6a !important;
+  color: white !important;
+}
 
 
