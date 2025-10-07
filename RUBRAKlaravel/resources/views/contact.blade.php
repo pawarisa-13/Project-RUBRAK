@@ -50,17 +50,17 @@
             <div class="left-con">
             <div class="sub-contact">
             <h2>Address</h2>
-            <p>45 Maplewood Avenue Greenhill,<br> NY 12845 United States</p>
-            <p>18 Rosewood Lane Riverdale,<br> London SW3 7TP United Kingdom</p>
+            <p>123/2002 Moo 16 Mittapap Rd.,<br> Nai-Muang, Muang District, Khon Kaen 40002,Thailand.</p>
+
             </div>
             <div class="sub-contact">
             <h2>General inquiries</h2>
-            <p>info@sunnytechsolutions.com <br>Phone: +1 (408) 555-9274</p>
-            <p>emily.johnson@examplemail.com <br>Phone: +1 (212) 555-3489</p>
+            <p>rubrak@gamil.com <br>Phone : 089-785-9999</p>
+            <p>maiyakrainlaw@kkumail.com <br>Phone : 099-999-9999</p>
             </div>
             <div class="sub-contact">
             <h2>Contact & interships</h2>
-            <p>careers@oceanbreezeinc.com</p>
+            <p>rubrak@gamil.com</p>
             </div>
             </div>
         
