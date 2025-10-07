@@ -95,8 +95,8 @@
             <input type="text" name="phone" class="info"
               value="{{ old('phone', Auth::user()->phone ?? '') }}">
           </div> -->
-          <div class="mb-3">
-            <label class="form-label">Email: </label>
+          <div class="mb-3 f2">
+            <label class="form-label">Email:</label>
             <input type="email" name="email" class="info"
               value="{{ old('email', Auth::user()->email ?? '') }}" required>
           </div>

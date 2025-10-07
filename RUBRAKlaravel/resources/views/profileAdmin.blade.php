@@ -120,18 +120,25 @@
             <h1><center>Hello! {{ Auth::user()->name }}</center></h1>
             <br><br>
             <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;" class="menu-cards">
-                <div class="sidebar">
+                
+                <a href="{{ route('admin.pets.index') }}">
+                    <div class="sidebar">
                     <i class="fa-solid fa-dog icon"></i>
                     <a href="{{ route('admin.pets.index') }}" style="text-decoration: none;">Add pet</a>
                 </div>
-                <div class="sidebar">
+                </a>
+                <a href="{{ route('infoTable') }}">
+                    <div class="sidebar">
                     <i class="fa-solid fa-table icon"></i>
                     <a href="{{ route('infoTable') }}" style="text-decoration: none;">Information</a>
                 </div>
-                <div class="sidebar">
+                </a>
+                <a href="{{ route('reqTable') }}">
+                    <div class="sidebar">
                     <i class="fa-solid fa-envelope-open-text icon"></i>
                     <a href="{{ route('reqTable') }}" style="text-decoration: none;">Request</a>
                 </div>
+                </a>
             </div>
             <br><br>
             <div class="btn">

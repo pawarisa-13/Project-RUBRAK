@@ -1,0 +1,114 @@
+
+body {
+      font-family: 'Prompt', sans-serif;
+      background: #fff;
+    }
+/* layout */
+.page-wrap {
+    max-width: 1200px;
+    margin: 30px auto;
+    display: flex;
+    gap: 20px;
+}
+:root {
+      --brand: #2f4b9c;
+      --cream: #fffdf8;
+    }
+
+.sidebar {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      width: 230px;
+      height: fit-content;
+    }
+
+.sidebar button {
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    padding: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.sidebar button:hover{
+    background-color: #364c84;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    color: var(--cream);
+}
+.button-profile {
+    background: #eee;
+    color: #000000ff;
+      
+}
+.button-request {
+    background: #eee;
+    color: #000000ff;  
+}
+.button-logout:hover {
+      background: #d44 !important;
+      color: #eee !important;
+}
+.button-logout {
+    background: #eee;
+    color: #d44;
+}
+.content {
+    flex: 1;
+}
+.pet-card {
+    display: inline-block;
+    width: 250px;
+    margin: 15px;
+    padding: 15px;
+    border: 2px solid #364C84;
+    background-color: #FFFDF5;
+    border-radius: 30px;
+    text-align: center;
+    vertical-align: top;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+    color: #364C84;
+}
+.pet-card h4{
+    margin-top: 5px;
+}
+.pet-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+.reqEdit{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+.info-box {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+}
+
+.info-box h3 {
+      color: var(--brand);
+      font-weight: 600;
+      margin-bottom: 14px;
+      margin-left: 15px;
+}
+
+.info-box p {
+      margin-bottom: 8px;
+}
+
+.info {
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      padding: 6px 10px;
+}

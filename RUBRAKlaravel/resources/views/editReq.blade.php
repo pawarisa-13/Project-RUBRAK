@@ -13,6 +13,14 @@
     <title>Request</title>
 </head>
 <body>
+    @if (session('success'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('success') }}</p>
+            </div>
+        </div>
+    @endif
     <header>
         <div class="logo">
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
@@ -37,50 +45,43 @@
             @endauth
         </div>
     </header>
+    <div class="header-stripe"></div>
 
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
   <div class="col-md-6">
     <div class="card p-4">
 
-        <div class="text-center mb-4">
+    <div class="text-center mb-4">
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="100" alt="Logo">
-            <h3 class="mt-3">Pet Adoption Form</h3>
-            <p class="text-muted">Please fill in your details to apply for adopting {{ $pet->name_pet }}</p>
-        </div>
-      
-        <form action="{{ route('request.form') }}" method="POST">
-            @csrf
-            <input type="hidden" name="pet_id" value="{{ $pet->pet_id }}">
+            <h3>Pet Adoption Edit Form</h3>
+    <form action="{{ route('requests.update', ['id' => $rd->getKey()]) }}" method="POST">
+    @csrf
+    @method('PUT')
 
-            <div class="form-group">
-                <label>Pet Experience</label>
-                <textarea name="pet_experience" class="form-control" required placeholder="Please tell us about your pet experience"></textarea>
-            </div>
+    <div>
+        <label>Pet Experience</label>
+        <input type="text" name="pet_experience" value="{{ old('pet_experience', $rd->pet_experience) }}"><br>
 
-            <div class="form-group mb-3 flex-column">
-                <label>Other Pets</label>
-                <textarea name="other_pet" class="form-control" required placeholder="How many pets you have, and what their type"></textarea>
-            </div>
 
-            <div class="form-group mb-3 flex-column">
-                <label>Adopt Reason</label>
-                <textarea name="adopt_reason" class="form-control" required placeholder="Why you want to adopt {{ $pet->name_pet }}"></textarea>
-            </div>
+        <label>Other Pets</label>
+        <input type="text" name="other_pet" value="{{ old('other_pet', $rd->other_pet) }}" required><br>
 
-            <div class="form-group mb-3 flex-column">
-                <label>Phone</label>
-                <input type="tel" name="phone" class="form-control" required placeholder="0123456789">
-            </div>
 
-            <div class="form-group mb-4 flex-column">
-                <label>Address</label>
-                <textarea name="address_user" class="form-control" required placeholder="Your address"></textarea>
-            </div>
 
-            <div class="text-center mt-3">
-                <button type="submit" class="btn btn-primary btn-submit">Submit</button>
-            </div>
-        </form>
+        <label>Adopt Reason</label>
+        <input type="text" name="adopt_reason" value="{{ old('adopt_reason', $rd->adopt_reason) }}" required><br>
+
+        <label>Phone</label>
+        <input type="text" name="phone" value="{{ old('phone', $rd->phone) }}" required><br>
+
+        <label>Adress</label>
+        <input type="text" name="address_user" value="{{ old('address_user', $rd->address_user) }}" required><br>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </div>
+    </form>
+    <a href="{{ route('ur_req')}}"class="btn btn-sm btn-primary">Back</a>
     </div>
   </div>
 </div>

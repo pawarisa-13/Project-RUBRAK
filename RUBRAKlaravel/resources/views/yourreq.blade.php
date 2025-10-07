@@ -7,12 +7,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/yourreq.css')}}">
     <title>Rubrak</title>
-    <style>
-        h1{
-            color: #364C84;
-        }
-    </style>
+    {{-- js --}}
+    {{-- <script>
+        window.petsData = @json($requests);
+        window.adoptUrlTemplate = "{{ route('req.view', ':pet_id') }}";
+    </script>
+    <script src="{{ asset('js/pet-modal.js') }}"></script> --}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -39,56 +43,67 @@
             @endauth
         </div>
     </header>
-    <h1><center>Your Request</center></h1><br>
 
-    <table class="table table-bordered mt-3">
-        <thead class="table-light">
-            <tr>
-                <th>Pet Name</th>
-                <th>Pet Picture</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Requested On</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse($requests as $req)
-                <tr>
-                    <td>{{ $req->pet->name_pet ?? 'Unknown' }}</td>
-                    <td>
-                        @if ($req->pet && $req->pet->picture)
-                            <img src="{{ asset('storage/' . $req->pet->picture) }}" width="70" height="70"
-                                style="object-fit: cover; border-radius:8px;">
-                        @else
-                            <span>No Image</span>
-                        @endif
-                    </td>
-                    <td>{{ $req->pet->type ?? '-' }}</td>
-                    <td>
-                        @if ($req->status_request === 'waiting')
-                            <span class="text-warning fw-bold">Waiting</span>
-                        @elseif($req->status_request === 'approved')
-                            <span class="text-success fw-bold">Approved</span>
-                        @elseif($req->status_request === 'rejected')
-                            <span class="text-danger fw-bold">Rejected</span>
-                        @else
-                            <span class="text-secondary">-</span>
-                        @endif
-                    </td>
-                    <td>{{ $req->created_at->format('d M Y') }}</td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="4" class="text-center text-muted">
-                        You haven’t requested to adopt any pets yet.
-                    </td>
-                </tr>
-            @endforelse
-        </tbody>
-    </table>
+     <div class="page-wrap">
+    <!-- แถบ side bar -->
+    <div class="sidebar">
+        <a href="{{route('profile')}}"><button class="button-profile" type="button">Profile</button></a>
+        <a  href="{{ route('ur_req') }}"><button class="button-request">Your Request</button></a>
+
+         <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" class="button-logout">Logout</button>
+        </form>
+    </div>
+    <div class="info-box">
+        <h3>Your Request</h3>
+        <div class="pet-container">
+        @foreach($requests as $req)
+        <div class="pet-card">
+            <img src="{{ asset('storage/' . $req->pet->picture) }}" alt="No Image">
+            <div>
+                <h4>{{ $req->pet->name_pet ?? 'Unknown' }}</h4>
+                <p>type: {{ $req->pet->type ?? '-' }}</p>
+            </div>
+            <div>
+                <p>Status:
+            @if ($req->status_request === 'waiting')
+                <span class="text-warning fw-bold">Waiting</span>
+            @elseif($req->status_request === 'approved')
+                <span class="text-success fw-bold">Approved</span>
+            @elseif($req->status_request === 'rejected')
+                <span class="text-danger fw-bold">Rejected</span>
+            @else
+                <span class="text-secondary">-</span>
+            @endif</p>
+            </div>
+            <div>
+                <p>Requested On</p>
+            {{ $req->created_at->format('d M Y') }}
+            </div>
+            @php
+                $pc = ($req->status_request === 'waiting') ;
+                @endphp
+
+                @if ($pc)
+                    <div class="reqEdit">
+                        <a href="{{route('requests.edit',['id' => $req->number_req])}}">
+                        <button class="btn btn-sm btn-outline-primary">Edit</button></a>
+                    <form action="{{route('req.destroy',['id' => $req->number_req])}}" method="POST"
+                        onsubmit="return confirm('Are you sure to cancel ?')" style="margin:0;">
+                        @csrf
+                        @method('DELETE')
+                    <button class="btn btn-sm btn-outline-danger"  type="submit" style="width: 75px">Cancel</button>
+                    </form>
+                    </div>
+                @else
+                <button class="btn btn-light" disabled>Can not edit</button>
+                @endif
+        </div>
+        {{-- <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button> --}}
+        @endforeach
+    </div>
     </div>
 
-
-    
 </body>
 </html>

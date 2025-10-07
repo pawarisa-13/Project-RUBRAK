@@ -55,6 +55,9 @@ Route::middleware([
     Route::get('/profile', [UserController::class, 'show'])->name('profile.show');
     Route::put('/profile/update', [UserController::class, 'update'])->name('profile.update');
     Route::get('/your_request', [UserController::class, 'your_request'])->name('ur_req');
+    Route::get ('/my/requests/{id}/edit',[UserController::class,'reEdit'])->name('requests.edit');
+    Route::put ('/my/requests/{id}',[UserController::class,'reUpdate'])->name('requests.update');
+    Route::delete('/my/requests/{id}/destroy', [UserController::class, 'Destroy'])->name('req.destroy');
     //pets_user
     Route::get('/pet', [Pet_UserController::class, "index"])->name('pet.filter'); //**** */
 

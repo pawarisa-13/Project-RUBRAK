@@ -8,36 +8,6 @@ use App\Models\RequestAdopt ;
 use App\Models\Pet;
 class ReqController extends Controller
 {
-    // public function request(Request $req)
-    // {
-    //     $req->validate([
-    //         'pet_id'         => [
-    //             'required','integer','exists:pets,pet_id',
-    //             Rule::unique('requests')->where(fn($q) =>
-    //                 $q->where('user_id', auth()->id())
-    //             )
-    //         ],
-    //         'phone' => 'required|string',
-    //         'pet_experience' => 'required|string',
-    //         'other_pet'      => 'required|string',
-    //         'adopt_reason'   => 'required|string',
-    //         'address_user'   => 'required|string',
-    //     ]);
-
-    //     RequestAdopt::create([
-    //         'user_id'        => auth()->id(),
-    //         'pet_id'         => $req->pet_id,
-    //         'phone'          => $req->phone,
-    //         'pet_experience' => $req->pet_experience,
-    //         'other_pet'      => $req->other_pet,
-    //         'adopt_reason'   => $req->adopt_reason,
-    //         'address_user'   => $req->address_user,
-    //         'status_request' => 'waiting',
-    //     ]);
-
-    //     return redirect()->route('pet.filter')->with('success','อ่านทำไม');
-    // }
-
     public function request(Request $req)
     {
         $req->validate([
@@ -59,7 +29,7 @@ class ReqController extends Controller
         // ส่งกลับพร้อม error สำหรับฟิลด์ pet_id (หรือจะใส่เป็น session()->flash ก็ได้)
         return back()
             ->withErrors(['pet_id' => 'คุณได้ส่งคำขอรับเลี้ยงสัตว์ตัวนี้แล้ว ไม่สามารถส่งซ้ำได้'])
-            ->withInput();
+             ->withInput();
     }
 
         RequestAdopt::create([
@@ -72,7 +42,7 @@ class ReqController extends Controller
             'address_user'   => $req->address_user,
             'status_request' => 'waiting',
         ]);
-        
+
 
         return redirect()->route('pet.filter')->with('success','ส่งคำขอรับเลี้ยงเรียบร้อยแล้ว');
     }
@@ -84,11 +54,37 @@ class ReqController extends Controller
     return view('Request', compact('pet'));
     }
 
-    public function ReqTable()
+    public function ReqTable(Request $requests)
     {
-        $requests = RequestAdopt::all();
-        return view('ReqTable',compact('requests'));
+        $filter = $requests->query('status', 'waiting');
+        $rt= RequestAdopt::with(['user','pet']);
+        // $requests = RequestAdopt::all(); เอาออกใช้ fliter
+
+        switch ($filter) {
+            case 'waiting':
+                $rt->where('status_request', 'waiting')->orderByDesc('pet_id');
+
+                break;
+
+            case 'approved':
+                $rt->onlyTrashed()->where('status_request', 'approved')->orderByDesc('deleted_at');
+
+                break;
+
+            case 'rejected':
+                $rt->onlyTrashed()->where('status_request', 'rejected')->orderByDesc('deleted_at');
+
+                break;
+
+            case 'all':
+                $rt->withTrashed()->orderByDesc('status_request');
+                break;
+        }
+        $requests = $rt->get();
+        return view('ReqTable',compact('requests','filter'));
     }
+
+
 
     public function approve($id)
 {
@@ -117,5 +113,6 @@ public function reject($id)
 
     return back()->with('error', 'ปฏิเสธคำขอเรียบร้อย');
 }
+
 }
 

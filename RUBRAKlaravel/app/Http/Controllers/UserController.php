@@ -65,6 +65,41 @@ class UserController extends Controller
 
     return view('yourreq', compact('requests'));
 }
+public function reEdit($id)
+    {
+        $rd = RequestAdopt::where('user_id', auth()->id())
+            ->where('status_request','waiting') // แก้ไขได้เฉพาะ waiting
+            ->findOrFail($id);
+        return view('editReq', compact('rd'));
+    }
+public function reUpdate(Request $request, $id)
+{
+    $validated = $request->validate([
+        'phone'           => ['required','string','max:50'],
+        'pet_experience'  => ['required','string','max:255'],
+        'other_pet'       => ['required','integer','min:0'],
+        'adopt_reason'    => ['required','string','max:255'],
+        'address_user'    => ['required','string','max:255'],
+    ]);
+
+
+    $updated = RequestAdopt::where('user_id', auth()->id())
+        ->whereKey($id)
+        ->update($validated);
+
+        return redirect()->route('ur_req')->with('success','แก้ไขคำขอเรียบร้อย');
+    }
+
+
+    public function destroy($id)
+{
+
+    $deleted = RequestAdopt::where('user_id', auth()->id())
+        ->where('number_req', $id)
+        ->forceDelete();
+
+    return back()->with('success', 'ลบคำขอเรียบร้อย (ถาวร)');
+}
 
 
 
