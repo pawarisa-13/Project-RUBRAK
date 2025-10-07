@@ -37,6 +37,7 @@
         }
 
         .card {
+            margin-top: 20px;
             border: none;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -58,6 +59,10 @@
             background-repeat: no-repeat;
             background-position: right 10px center;
             background-size: 18px;
+        }
+
+        .post {
+            margin-top: 10px; 
         }
 
         .form-control {
@@ -228,23 +233,25 @@
     <h2>Your Posted !</h2>
 
     <!-- Card -->
-    <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;">
+    <div  style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;">
         @foreach ($pets as $p)
             <div class="Card-box"
                 style="flex:0 0 250px; max-width:250px; border:1px solid #364c84; border-radius:15px; padding:15px; background:#fdf8e2; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box; color:#364c84;">
                 <img src="{{ asset('storage/' . $p->picture) }}" alt="{{ $p->name_pet }}"
-                    style="width:200px; height:200px; border-radius:6px; object-fit:cover; ">
+                    style="width:200px; height:200px; border-radius:6px; object-fit:cover; display:block; margin:auto; ">
 
-                <h3>{{ $p->name_pet }}</h3>
-                <p>Age : {{ $p->age_pet }} months</p>
-                <p>Gender: {{ $p->gender }}</p>
-                <p>Type : {{ $p->type }}</p>
-                <p>Vaccine: {{ $p->vaccine ? 'Yes' : 'No' }}</p>
-                <p>Breed : {{ $p->breed }}</p>
-                <p>Province : {{ $p->province }}</p>
-                <p>Foundation : {{ $p->foundation }}</p>
-                <p>Info : {{ $p->info }}</p>
-                <p>Status : {{ $p->status ? 'Available' : 'Adopted' }}</p>
+                <div class="post">
+                    <h3>{{ $p->name_pet }}</h3>
+                    <p>Age : {{ $p->age_pet }} months</p>
+                    <p>Gender: {{ $p->gender }}</p>
+                    <p>Type : {{ $p->type }}</p>
+                    <p>Vaccine: {{ $p->vaccine ? 'Yes' : 'No' }}</p>
+                    <p>Breed : {{ $p->breed }}</p>
+                    <p>Province : {{ $p->province }}</p>
+                    <p>Foundation : {{ $p->foundation }}</p>
+                    <p>Info : {{ $p->info }}</p>
+                    <p>Status : {{ $p->status ? 'Available' : 'Adopted' }}</p>  
+                </div>
 
                 <div style="display:flex; gap:8px; margin-top:10px;">
                     <a href="{{ route('pets.edit', $p->pet_id) }}"

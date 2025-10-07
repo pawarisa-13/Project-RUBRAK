@@ -103,7 +103,8 @@ class ReqController extends Controller
     Pet::where('pet_id', $req->pet_id)->update(['status' => 0]);
     RequestAdopt::where('pet_id', $req->pet_id)->delete();
 
-    return back()->with('success', 'อนุมัติเรียบร้อย!');
+    // return back()->with('success', 'อนุมัติเรียบร้อย!');
+    return redirect()->route('reqTable')->with('success','approved');
 }
 public function reject($id)
 {
