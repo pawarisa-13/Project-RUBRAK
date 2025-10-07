@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Pet;
+use App\Models\RequestAdopt;
 use Illuminate\Http\Request;
 // use App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
@@ -54,9 +55,16 @@ class UserController extends Controller
         $user->update($request->only('name','email'));
         return redirect()->route('profile')->with('success','อัปเดตข้อมูลเรียบร้อยแล้ว');
     }
-    public function your_request(){
-        return view('yourreq');
-     }
+    public function your_request()
+{
+    $userId = auth()->id(); // ดึง ID ของผู้ใช้ที่ล็อกอินอยู่
+    $requests = RequestAdopt::where('user_id', auth()->id())
+        ->withTrashed('pet') // ดึงข้อมูลสัตว์เลี้ยงที่เกี่ยวข้องด้วย
+        ->get();
+    // $rt->withTrashed()
+
+    return view('yourreq', compact('requests'));
+}
 
 
 

@@ -33,8 +33,11 @@ class Controller extends BaseController
          $pets = Pet::all();
          return view('Showpets', compact('pets'));
      }
-    public function show()
-    {
-        return view('profileUser');
+    public function show(){
+    if (auth()->user()->role==='admin') {
+            return view('profileAdmin');
+        }else{
+            return view('profileUser');
+        }
     }
 }

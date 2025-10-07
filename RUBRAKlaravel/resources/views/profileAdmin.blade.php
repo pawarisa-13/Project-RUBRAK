@@ -7,9 +7,13 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/header.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Rubrak</title>
     <style>
+        h1{
+            color: #364c84
+        }
         .btn {
             display: flex;
             flex-wrap: wrap;
@@ -42,6 +46,7 @@
             align-items: center;
             text-align: center;
             transition: all 0.2s ease;
+
         }
 
         .sidebar .icon {
@@ -50,19 +55,18 @@
             margin-bottom: 10px;
         }
 
-        /* .sidebar a {
+        .sidebar a {
             display: flex;
             text-decoration: none;
-            background-color: #dcdcdc;
             color: #364C84;
             font-weight: 500;
             padding: 5px 5px;
             margin: 5px;
             border-radius: 10px;
             text-align: center;
-            transition: all 0.2s ease-in-out;
+            /* transition: all 0.2s ease-in-out; */
             justify-content: center;
-        } */
+        }
 
         .sidebar:hover {
             background-color: #364c84;
@@ -113,7 +117,7 @@
         </div>
         <img src="" alt="">
         <div>
-            <h1>Profile Admin</h1>
+            <h1><center>Hello! {{ Auth::user()->name }}</center></h1>
             <br><br>
             <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;" class="menu-cards">
                 <div class="sidebar">
