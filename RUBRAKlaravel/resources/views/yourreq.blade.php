@@ -93,7 +93,7 @@
                         onsubmit="return confirm('Are you sure to cancel ?')" style="margin:0;">
                         @csrf
                         @method('DELETE')
-                    <button class="btn btn-sm btn-outline-danger"  type="submit" style="width:0.375rem rborder-radius: 0.375rem">Cancel</button>
+                    <button class="btn  btn-outline-danger"  type="submit" >Cancel</button>
                     </form>
                     </div>
                 @else
