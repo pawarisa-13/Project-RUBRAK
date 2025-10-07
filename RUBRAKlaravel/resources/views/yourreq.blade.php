@@ -87,8 +87,7 @@
 
                 @if ($pc)
                     <div class="reqEdit">
-                        <a href="{{route('requests.edit',['id' => $req->number_req])}}">
-                        <button class="btn btn-sm btn-outline-primary">Edit</button></a>
+                        <button class="btn btn-sm btn-outline-primary" style="width: 75px" ><a href="{{route('requests.edit',['id' => $req->number_req])}}">Edit</button></a>
                     <form action="{{route('req.destroy',['id' => $req->number_req])}}" method="POST"
                         onsubmit="return confirm('Are you sure to cancel ?')" style="margin:0;">
                         @csrf
