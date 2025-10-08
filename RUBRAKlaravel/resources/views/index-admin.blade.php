@@ -7,108 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/indexadmin.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Post</title>
-    <style>
-        .btn-primary {
-            background-color: #364C84;
-            border: none;
-            border-radius: 25px;
-            padding: 10px 20px;
-        }
-
-        .btn-primary:hover {
-            background-color: #2c3c6a;
-        }
-
-        .form-control,
-        .form-select {
-            border-radius: 25px;
-            background-color: #f1f1f1;
-            border: none;
-            padding: 12px 18px;
-        }
-
-        .form-control:focus,
-        .form-select:focus {
-            box-shadow: 0 0 5px #98A9D2;
-            background-color: #fff;
-        }
-
-        .card {
-            margin-top: 20px;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .custom-select {
-            appearance: none;
-            
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            border-radius: 25px;
-            background-color: #364C84;
-            color: white;
-            padding: 10px 40px 10px 15px;
-            border: none;
-            font-size: 16px;
-            font-weight: 500;
-            background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-            background-repeat: no-repeat;
-            background-position: right 10px center;
-            background-size: 18px;
-        }
-
-        .post {
-            margin-top: 10px; 
-        }
-
-        .form-control {
-            border-radius: 25px;
-            background-color: #f1f1f1;
-            border: none;
-            /* padding: 12px 18px; */
-        }
-
-        .form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  .form-group label {
-      /* กำหนดความกว้าง label */
-    font-weight: 500;
-    margin-right: 10px;
-  }
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    flex: 1;
-    border-radius: 10px;
-    background: #f1f1f1;
-    border: none;
-    padding: 10px 15px;
-  }
-  .form-group textarea {
-    resize: none;
-    height: 80px;
-  }
-  .form-check-inline {
-    margin-right: 15px;
-  }
-  .btn-submit {
-    background: #364C84;
-    border: none;
-    border-radius: 25px;
-    color: white;
-    padding: 12px;
-    font-weight: bold;
-    width: 100%;
-    transition: 0.3s;
-  }
-    </style>
 </head>
 
 <body>
@@ -136,10 +38,12 @@
             @endauth
         </div>
     </header>
-    <div class="header-stripe"></div>
+    <a href="http://127.0.0.1:8000/profile" class="btn-back"><button class="back">Back</button></a>
+    
 
     {{-- <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100"> --}}
-    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div class="container " style="min-height: 100vh;">
+
 
         <div class="col-md-6">
             <div class="row justify-content-center">
@@ -230,10 +134,10 @@
 
     <hr>
 
-    <h2>Your Posted !</h2>
+    <h2 style=""><center>Your Posted!</center></h2>
 
     <!-- Card -->
-    <div  style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;">
+    <div  style="display:flex; flex-wrap:wrap; gap:20px; margin:20px;">
         @foreach ($pets as $p)
             <div class="Card-box"
                 style="flex:0 0 250px; max-width:250px; border:1px solid #364c84; border-radius:15px; padding:15px; background:#fdf8e2; box-shadow:0 2px 6px rgba(0,0,0,0.1); box-sizing:border-box; color:#364c84;">
@@ -268,9 +172,7 @@
             </div>
         @endforeach
     </div><br><br>
-    <div class="text-center mt-4">
-        <a href="http://127.0.0.1:8000/profile" class="btn btn-sm btn-primary">Back</a>
-    </div>
+    
 
 </body>
 

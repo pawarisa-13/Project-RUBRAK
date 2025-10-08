@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: flex-start;
             padding: 50px 0;
-            background-color: #faf9f6;
+            /* background-color: #faf9f6; */
         }
 
         .form-card {
@@ -66,16 +66,36 @@
             padding: 50px 0;
             background-color: #faf9f6;
         }
+        
         .btn-back{
-            color: #faf9f6;
-            background-color: #364C84;
+            margin: 20px;
+            margin-bottom: 0%;
+            background: #364C84;
             border: none;
             border-radius: 25px;
-            padding: 10px 20px;
-
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        .btn-back a {
-             color: #faf9f6;
+        .back{
+            margin-top: 10px;
+            background: #364C84;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .form-card button{
+            background: #364C84;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            transition: 0.3s;
         }
     </style>
 </head>
@@ -105,8 +125,7 @@
             @endauth
         </div>
     </header>
-    <div class="header-stripe"></div>
-
+    <a href="http://127.0.0.1:8000/profile" class="btn-back"><button class="back">Back</button></a>
     <div class="edit-container">
         <div class="form-card">
             <form action="{{ route('admin.pets.update', $p->pet_id) }}" method="POST" enctype="multipart/form-data">
@@ -167,14 +186,9 @@
                 <input type="radio" name="status" value="0" {{ !$p->status ? 'checked' : '' }}> Adopted
                 <br><br>
 
-                <button type="submit" class="btn btn-sm btn-primary">Update Pet</button>
+                <center><button type="submit" class="btn btn-sm btn-primary">Update Pet</button></center>
             </form>
         </div>
-    </div>
-    <div class="btn-container">
-       <div class="btn-back">
-        <a href="{{ url('http://127.0.0.1:8000/admin/pets') }}" style="text-decoration: none;" >Back</a>
-    </div> 
     </div>
     
     

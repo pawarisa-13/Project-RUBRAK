@@ -118,27 +118,31 @@
         <img src="" alt="">
         <div>
             <h1><center>Hello! {{ Auth::user()->name }}</center></h1>
+            <br>
+            <div>
             <br><br>
             <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;" class="menu-cards">
-                
-                <a href="{{ route('admin.pets.index') }}">
-                    <div class="sidebar">
+                <a href="{{ route('admin.pets.index') }}" style="text-decoration:none; color:inherit;">
+                <div class="sidebar" style="text-decoration: none;">
                     <i class="fa-solid fa-dog icon"></i>
-                    <a href="{{ route('admin.pets.index') }}" style="text-decoration: none;">Add pet</a>
+                    Add pet
                 </div>
                 </a>
-                <a href="{{ route('infoTable') }}">
-                    <div class="sidebar">
+
+                <a href="{{ route('infoTable') }}" style="text-decoration:none; color:inherit;">
+                <div class="sidebar">
                     <i class="fa-solid fa-table icon"></i>
-                    <a href="{{ route('infoTable') }}" style="text-decoration: none;">Information</a>
+                    Information
                 </div>
                 </a>
-                <a href="{{ route('reqTable') }}">
-                    <div class="sidebar">
+
+                <a href="{{ route('reqTable') }}" style="text-decoration:none; color:inherit;">
+                <div class="sidebar">
                     <i class="fa-solid fa-envelope-open-text icon"></i>
-                    <a href="{{ route('reqTable') }}" style="text-decoration: none;">Request</a>
+                    Request
                 </div>
                 </a>
+
             </div>
             <br><br>
             <div class="btn">
