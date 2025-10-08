@@ -23,6 +23,10 @@
             font-weight: bold;
             transition: 0.3s;
         }
+        .btn-primary:hover{
+            background: #364C84;
+            color: white;
+        }
     </style>
 </head>
 
