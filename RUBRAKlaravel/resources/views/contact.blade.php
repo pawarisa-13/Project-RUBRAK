@@ -55,7 +55,7 @@
             </div>
             <div class="sub-contact">
             <h2>General inquiries</h2>
-            <p>rubrak@gamil.com <br>Phone : 089-785-9999</p>
+            <p style="margin-bottom: 5px">rubrak@gamil.com <br>Phone : 089-785-9999</p>
             <p>maiyakrainlaw@kkumail.com <br>Phone : 099-999-9999</p>
             </div>
             <div class="sub-contact">

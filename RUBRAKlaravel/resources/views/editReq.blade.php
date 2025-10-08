@@ -85,18 +85,14 @@
 
         <div class="btn-edit">
             <button type="submit" class="btn btn-outline-primary">Submit</button>
-            <a href="{{ route('ur_req')}}" class="btn btn-outline-primary" style="width: 120px">Back</a>
+            <a href="{{ route('ur_req')}}" class="btn" style="width: 120px">Back</a>
             {{-- <button class="btn btn-outline-primary" action="{{ route('ur_req')}}"><a href="http:{{ route('ur_req')}}">Back</a></button> --}}
             
-        </div>
-       
         </div>
     </form>
     </div>
   </div>
 </div>
-
-
 
 
 </body>
