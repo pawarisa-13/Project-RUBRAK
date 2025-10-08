@@ -19,6 +19,12 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 25px;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
         .menu-cards {
@@ -67,6 +73,9 @@
             /* transition: all 0.2s ease-in-out; */
             justify-content: center;
         }
+        .sidebar p{
+            color: #364c84;
+        }
 
         .sidebar:hover {
             background-color: #364c84;
@@ -79,7 +88,7 @@
             color: #fdfcf4;
         }
 
-        .sidebar:hover a {
+        .sidebar:hover p {
             color: #fdfcf4;
         }
     </style>
@@ -125,21 +134,21 @@
                 <a href="{{ route('admin.pets.index') }}" style="text-decoration:none; color:inherit;">
                 <div class="sidebar" style="text-decoration: none;">
                     <i class="fa-solid fa-dog icon"></i>
-                    Add pet
+                    <p>Add pet</p>
                 </div>
                 </a>
 
                 <a href="{{ route('infoTable') }}" style="text-decoration:none; color:inherit;">
                 <div class="sidebar">
                     <i class="fa-solid fa-table icon"></i>
-                    Information
+                    <p>Information</p>
                 </div>
                 </a>
 
                 <a href="{{ route('reqTable') }}" style="text-decoration:none; color:inherit;">
                 <div class="sidebar">
                     <i class="fa-solid fa-envelope-open-text icon"></i>
-                    Request
+                    <p>Request</p>
                 </div>
                 </a>
 
