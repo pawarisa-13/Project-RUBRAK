@@ -11,6 +11,17 @@
     <title>Request Table</title>
     <link rel="stylesheet" href="{{ asset('css/pet.css') }}">
     <script src="{{ asset('js/alert.js') }}"></script>
+    <style>
+        .btn-primary{
+            background: #364C84;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+    </style>
 </head>
 <body>
     @if (session('success'))

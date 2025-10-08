@@ -14,6 +14,15 @@
         .filter{
             color: #364C84;
         }
+        .btn-primary{
+            background: #364C84;
+            border: none;
+            border-radius: 25px;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
     </style>
 </head>
 
