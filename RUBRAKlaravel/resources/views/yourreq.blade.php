@@ -8,11 +8,30 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/yourreq.css')}}">
+    
+
     <title>Rubrak</title>
+    <script src="{{ asset('js/alert.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
 <body>
+     @if (session('success'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('success') }}</p>
+            </div>
+        </div>
+    @elseif (session('error'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('error') }}</p>
+            </div>
+        </div>
+    @endif
+
     <header>
         <div class="logo">
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
@@ -94,7 +113,7 @@
                 <button class="btn btn-light" disabled>Can not edit</button>
                 @endif
         </div>
-        
+
         @endforeach
     </div>
     </div>
