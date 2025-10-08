@@ -66,8 +66,6 @@
 
     </table>
 
-    <div class="header-stripe"></div>
-
 
     <div class="container mb-4">
 
@@ -82,7 +80,7 @@
         <h2>Pet Request</h2>
     <div class="filter">
     <form method="GET" action="{{ route('reqTable') }}" >
-    <select class="btn btn-sm btn-outline-primary" name="status" onchange="this.form.submit()" >
+    <select class="form-select w-auto d-inline" name="status" onchange="this.form.submit()" >
         <option value="all"      {{ $filter==='all' ? 'selected' : '' }}>All</option>
         <option value="waiting"  {{ $filter==='waiting' ? 'selected' : '' }}>Waiting</option>
         <option value="approved" {{ $filter==='approved' ? 'selected' : '' }}>Approved</option>
