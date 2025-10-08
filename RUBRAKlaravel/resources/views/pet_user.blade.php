@@ -95,17 +95,19 @@
 
     </div>
 
-    <div class="pet-container">
-        @foreach($pets as $pet)
-        <div class="pet-card">
-            <img src="{{ asset('storage/' . $pet->picture) }}" alt="{{ $pet->name_pet }}">
-            <h3>{{ $pet->name_pet }}</h3>
-            <p>{{ $pet->gender }} | {{ $pet->province }}</p>
-            <button onclick="openModal('{{ $pet->pet_id }}')">More Info</button>
-            <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{ route('req.view', ['pet_id' => $pet->pet_id]) }}">Send a request</a></button>
+    <center>
+        <div class="pet-container">
+            @foreach($pets as $pet)
+            <div class="pet-card">
+                <img src="{{ asset('storage/' . $pet->picture) }}" alt="{{ $pet->name_pet }}">
+                <h3>{{ $pet->name_pet }}</h3>
+                <p>{{ $pet->gender }} | {{ $pet->province }}</p>
+                <button onclick="openModal('{{ $pet->pet_id }}')">More Info</button>
+                <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{ route('req.view', ['pet_id' => $pet->pet_id]) }}">Send a request</a></button>
+            </div>
+            @endforeach
         </div>
-
-        @endforeach
+    </center>
     </div>
 
     <!-- Modal -->

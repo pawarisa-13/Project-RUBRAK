@@ -11,6 +11,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Request</title>
+    <script>
+        function checkPhone(){
+            let checkP = document.getElementById("phone").value
+            if(checkP.length != 10){
+                alert("เบอร์โทรศัพท์ต้องมีทั้งหมด 10 หลัก")
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -69,7 +77,7 @@
 
             <div class="form-group mb-3 flex-column">
                 <label>Phone</label>
-                <input type="tel" name="phone" class="form-control" required placeholder="0123456789">
+                <input type="tel" name="phone" id="phone" onblur="checkPhone()" class="form-control" required placeholder="0123456789">
             </div>
 
             <div class="form-group mb-4 flex-column">
