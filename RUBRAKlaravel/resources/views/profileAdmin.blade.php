@@ -23,7 +23,7 @@
             border-radius: 25px;
             color: white;
             padding: 12px;
-            font-weight: bold;
+            /* font-weight: bold; */
             transition: 0.3s;
         }
 
