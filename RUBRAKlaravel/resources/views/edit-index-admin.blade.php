@@ -7,97 +7,10 @@
     <link rel="stylesheet" href="{{ asset('css/pets.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/edit_index.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        .edit-container{
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 50px 0;
-            /* background-color: #faf9f6; */
-        }
-
-        .form-card {
-            background-color: #ffffff;
-            border-radius: 16px;
-            padding: 40px 50px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 500px;
-            text-align: left;
-        }
-
-        .form-logo {
-            display: block;
-            margin: 0 auto 20px;
-            width: 90px;
-        }
-
-        .form-title {
-            text-align: center;
-            color: #364c84;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: 250;
-            color: #2f2f2f;
-            display: block;
-            margin-top: 12px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: none;
-            background-color: #f5f5f5;
-            margin-top: 5px;
-            outline: none;
-        }
-        .btn-container{
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 50px 0;
-            background-color: #faf9f6;
-        }
-        
-        .btn-back{
-            margin: 20px;
-            margin-bottom: 0%;
-            background: #364C84;
-            border: none;
-            border-radius: 25px;
-            color: white;
-            padding: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .back{
-            margin-top: 10px;
-            background: #364C84;
-            border: none;
-            border-radius: 25px;
-            color: white;
-            padding: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-        .form-card button{
-            background: #364C84;
-            border: none;
-            border-radius: 25px;
-            color: white;
-            padding: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-    </style>
 </head>
 
 <body>

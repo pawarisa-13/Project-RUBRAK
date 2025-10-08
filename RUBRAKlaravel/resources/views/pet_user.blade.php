@@ -7,17 +7,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
-    <title>Pets Page</title>
-    {{-- css --}}
     <link rel="stylesheet" href="{{ asset('css/pet.css') }}">
-
-    {{-- js --}}
     <script>
         window.petsData = @json($pets);
         window.adoptUrlTemplate = "{{ route('req.view', ':pet_id') }}";
     </script>
     <script src="{{ asset('js/pet-modal.js') }}"></script>
+    <title>Pets Page</title>
 </head>
+
 <body>
     @if (session('success'))
         <div class="preem" id="preem-popup">

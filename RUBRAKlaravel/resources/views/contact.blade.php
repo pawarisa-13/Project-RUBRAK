@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/contact.css')}}">
     <title>Rubrak</title>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -34,6 +35,7 @@
             @endauth
         </div>
     </header>
+    
         <div class="right">
             <aside>
                 <img src="{{ asset('Pic-rubrak/condog.jpg') }}" alt="contactpic" width="635" height="741" style="float: right; margin-left: 10px;">
