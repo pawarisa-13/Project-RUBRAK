@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string("other_pet");
             $table->text("adopt_reason");
             $table->string("address_user");
-            $table->enum('status_request', ['waiting','approved','rejected'])->default('waiting');//สถานะการพิจารณาคำขอ
+            $table->enum('status_request', ['waiting','approved','rejected'])->default('waiting');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -34,8 +34,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('requests');
-        // Schema::table('requests', function (Blueprint $table) {
-        //     $table->dropSoftDeletes();
-        // });
+        
     }
 };

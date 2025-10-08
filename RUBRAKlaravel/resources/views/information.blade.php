@@ -56,26 +56,7 @@
         </div>
     </header>
 
-    {{-- <header>
-
-        <div class="logo">
-            <div>
-                <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="36" alt="imglogo">
-            </div>
-
-            <h4>Rubrak</h4>
-        </div>
-
-        <ul>
-            <li class="menu"><a href="{{ route('home') }}">Home</a></li>
-            <li class="menu"><a href="{{ route('pets.index') }}">Pet</a></li>
-            <li class="menu"><a href="{{ route('donate') }}">Donate</a></li>
-            <li class="menu"><a href="{{ route('contact') }}">Contact Us</a></li>
-            <li class="menu"><a href="{{ route('profile') }}">Profile</a></li>
-
-        </ul>
-
-    </header> --}}
+    
     <div class="header-stripe"></div>
 
     <div class="container mb-4">
@@ -97,7 +78,7 @@
                 <option value="adopted" {{ request('filter-inform') == 'adopted' ? 'selected' : '' }}>Adopted</option>
             </select>
         </div>
-        
+
 </div>
             <table class="table table-bordered table-hover align-middle text-center table-striped">
                 <thead class="table-primary">

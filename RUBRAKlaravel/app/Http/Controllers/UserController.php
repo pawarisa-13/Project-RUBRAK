@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Models\Pet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-// use App\Http\Controllers\Auth;
 use App\Models\RequestAdopt ;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +17,6 @@ class UserController extends Controller
     public function home(){
         return view('home');
     }
-
-
 
      public function showpets()
      {
@@ -38,43 +35,27 @@ class UserController extends Controller
      public function donate(){
         return view('donate');
      }
-    //  public function show()
-    // {
-    //     return view('profileUser');
-    // }
+
     public function update(Request $request) {
     $user = User::findOrFail(auth()->id());
     $user->update($request->only('name','email'));
-    return redirect()->route('profile')->with('success','อัปเดตข้อมูลเรียบร้อยแล้ว');
+    return redirect()->route('profile')->with('success','Updated successfully');
 }
-    // public function update(Request $request)
-    // {
-    //     $user = Auth::user();
 
-    //     $name = $request->validate([
-    //         'name'  => ['required','string','max:255'],
-    //         'phone' => ['nullable','string','max:50'],
-    //         'email' => ['required','email','max:255','unique:users,email,'.$user->id],
-    //     ]);
-
-
-    //     $user->update($request->only('name','email'));
-    //     return redirect()->route('profile')->with('success','อัปเดตข้อมูลเรียบร้อยแล้ว');
-    // }
     public function your_request()
 {
-    $userId = auth()->id(); // ดึง ID ของผู้ใช้ที่ล็อกอินอยู่
+    $userId = auth()->id();
     $requests = RequestAdopt::where('user_id', auth()->id())
-        ->withTrashed('pet') // ดึงข้อมูลสัตว์เลี้ยงที่เกี่ยวข้องด้วย
+        ->withTrashed('pet')
         ->get();
-    // $rt->withTrashed()
+
 
     return view('yourreq', compact('requests'));
 }
 public function reEdit($id)
     {
         $rd = RequestAdopt::where('user_id', auth()->id())
-            ->where('status_request','waiting') // แก้ไขได้เฉพาะ waiting
+            ->where('status_request','waiting') 
             ->findOrFail($id);
         return view('editReq', compact('rd'));
     }
@@ -101,7 +82,7 @@ public function reUpdate(Request $request, $id)
         ->where('number_req', $id)
         ->forceDelete();
 
-    return back()->with('success', 'ลบคำขอเรียบร้อย (ถาวร)');
+    return back()->with('success', 'Request has been deleted successfully.');
 }
 
 

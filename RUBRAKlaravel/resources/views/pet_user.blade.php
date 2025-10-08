@@ -26,8 +26,15 @@
                 <p>{{ session('success') }}</p>
             </div>
         </div>
+    @elseif (session('error'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('error') }}</p>
+            </div>
+        </div>
     @endif
-    
+
     <header>
         <div class="logo">
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
@@ -65,7 +72,7 @@
         ];
         @endphp
 
-        <!-- All -->
+        
         <div class="filter-item">
             <a href="{{ route('pet.filter') }}"
             class="filter-btn {{ request('type') == null ? 'active' : '' }}"
@@ -76,7 +83,7 @@
             <span class="filter-label {{ request('type') == null ? 'active' : '' }}">All</span>
         </div>
 
-        <!-- Types -->
+
         @foreach ($types as $type)
         <div class="filter-item">
             <a href="{{ route('pet.filter', ['type' => $type]) }}"
@@ -99,7 +106,7 @@
             <button onclick="openModal('{{ $pet->pet_id }}')">More Info</button>
             <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{ route('req.view', ['pet_id' => $pet->pet_id]) }}">Send a request</a></button>
         </div>
-        {{-- <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button> --}}
+
         @endforeach
     </div>
 
@@ -116,7 +123,7 @@
             <p><strong>Info:</strong> <span id="modalInfo"></span></p>
             <p><strong>Foundation:</strong> <span id="modalFoundation"></span></p>
             <p><strong>Province:</strong> <span id="modalProvince"></span></p>
-            {{-- <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button> --}}
+
         </div>
     </div>
 

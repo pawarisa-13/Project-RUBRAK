@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Pet extends Model
 {
     use HasFactory;
@@ -28,7 +29,7 @@ class Pet extends Model
     ];
 
     public function requests(){
-        return $this->hasMany(Request::class, 'pet_id');
+        return $this->hasMany(RequestAdopt::class, 'pet_id');
     }
-    
+
 }

@@ -44,10 +44,10 @@
             height: 150px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 
-            /* จัดไอคอนและข้อความให้อยู่ตรงกลางแนวตั้ง */
+            
             display: flex;
             flex-direction: column;
-            /* สำคัญ — ทำให้ไอคอนอยู่บนข้อความอยู่ล่าง */
+
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -83,7 +83,7 @@
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
         }
 
-       
+
         .sidebar:hover .icon {
             color: #fdfcf4;
         }

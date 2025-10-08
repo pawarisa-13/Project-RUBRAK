@@ -16,11 +16,7 @@ class AdminController extends Controller
         return view('home');
     }
 
-    // public function ReqTable()
-    // {
-    //     $request = Request::all();
-    //     return view('ReqTable',compact('$request'));
-    // }
+
 
     public function req(){
         return view('Request');
@@ -98,12 +94,12 @@ class AdminController extends Controller
     {
         $p = Pet::findOrFail($id);
 
-        // ลบไฟล์รูปเก่า (ถ้ามี)
+
         if ($p->picture && Storage::disk('public')->exists($p->picture)) {
             Storage::disk('public')->delete($p->picture);
         }
 
-        // ลบข้อมูลออกจาก database
+
         $p->delete();
 
         return redirect()->route('admin.pets.index')->with('ok', 'Deleted!');

@@ -26,10 +26,7 @@ class ReqController extends Controller
 
 
         if ($already) {
-        // ส่งกลับพร้อม error สำหรับฟิลด์ pet_id (หรือจะใส่เป็น session()->flash ก็ได้)
-        return back()
-            ->withErrors(['pet_id' => 'คุณได้ส่งคำขอรับเลี้ยงสัตว์ตัวนี้แล้ว ไม่สามารถส่งซ้ำได้'])
-             ->withInput();
+        return redirect()->route('pet.filter')->with('error','You have already submitted an adoption request for this animal. You cannot submit it again.');
     }
 
         RequestAdopt::create([
@@ -44,7 +41,7 @@ class ReqController extends Controller
         ]);
 
 
-        return redirect()->route('pet.filter')->with('success','ส่งคำขอรับเลี้ยงเรียบร้อยแล้ว');
+        return redirect()->route('pet.filter')->with('success','Adoption request has been submitted.');
     }
 
 
@@ -58,7 +55,7 @@ class ReqController extends Controller
     {
         $filter = $requests->query('status', 'waiting');
         $rt= RequestAdopt::with(['user','pet']);
-        // $requests = RequestAdopt::all(); เอาออกใช้ fliter
+
 
         switch ($filter) {
             case 'waiting':
@@ -88,31 +85,24 @@ class ReqController extends Controller
 
     public function approve($id)
 {
-    // $req = RequestAdopt::findOrFail($id);
+
     $req = RequestAdopt::where('number_req', $id)->firstOrFail();
-    //อนุมัติคำขอปัจจุบัน
     $req->update(['status_request' => 'approved']);
-
-
-    //ปฏิเสธคำขออื่น
     RequestAdopt::where('pet_id', $req->pet_id)
         ->where('number_req', '!=', $req->number_req)
         ->update(['status_request' => 'rejected']);
-
-        //เปลี่ยนสถานะสัตว์เป็น 0
     Pet::where('pet_id', $req->pet_id)->update(['status' => 0]);
     RequestAdopt::where('pet_id', $req->pet_id)->delete();
-
-    // return back()->with('success', 'อนุมัติเรียบร้อย!');
     return redirect()->route('reqTable')->with('success','approved');
 }
+
 public function reject($id)
 {
     RequestAdopt::where('number_req', $id)->update(['status_request' => 'rejected']);
     $req = RequestAdopt::findOrFail($id);
     $req->delete();
 
-    return back()->with('error', 'ปฏิเสธคำขอเรียบร้อย');
+    return redirect()->route('reqTable')->with('error', 'rejected');
 }
 
 }

@@ -39,21 +39,21 @@
         </div>
     </header>
     <a href="http://127.0.0.1:8000/profile" class="btn-back"><button class="back">Back</button></a>
-    
 
-    {{-- <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Logo" width="100"> --}}
+
+
     <div class="container " style="min-height: 100vh;">
 
 
         <div class="col-md-6">
             <div class="row justify-content-center">
 
-                {{-- <div class="text-center mt-4"> --}}
+
                 <div class="card p-4">
                     <div class="text-center mb-4">
                         <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" width="100" alt="Logo">
                     </div>
-                    {{-- </div> --}}
+                    
 
                     </form>
                     <form action="{{ route('pets.store') }}" method="POST" enctype="multipart/form-data">
@@ -154,7 +154,7 @@
                     <p>Province : {{ $p->province }}</p>
                     <p>Foundation : {{ $p->foundation }}</p>
                     <p>Info : {{ $p->info }}</p>
-                    <p>Status : {{ $p->status ? 'Available' : 'Adopted' }}</p>  
+                    <p>Status : {{ $p->status ? 'Available' : 'Adopted' }}</p>
                 </div>
 
                 <div style="display:flex; gap:8px; margin-top:10px;">
@@ -172,7 +172,7 @@
             </div>
         @endforeach
     </div><br><br>
-    
+
 
 </body>
 

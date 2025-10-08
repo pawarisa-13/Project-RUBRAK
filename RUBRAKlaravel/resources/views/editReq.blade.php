@@ -20,6 +20,13 @@
                 <p>{{ session('success') }}</p>
             </div>
         </div>
+    @elseif (session('error'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('error') }}</p>
+            </div>
+        </div>
     @endif
     <header>
         <div class="logo">
@@ -87,7 +94,7 @@
             <button type="submit" class="btn btn-outline-primary">Submit</button>
             <a href="{{ route('ur_req')}}" class="btn" style="width: 120px">Back</a>
             {{-- <button class="btn btn-outline-primary" action="{{ route('ur_req')}}"><a href="http:{{ route('ur_req')}}">Back</a></button> --}}
-            
+
         </div>
     </form>
     </div>

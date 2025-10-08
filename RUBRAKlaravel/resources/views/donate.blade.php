@@ -15,7 +15,7 @@
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
             <p>Rubrak</p>
         </div>
-        <div class="nav">     
+        <div class="nav">
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
             <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
@@ -43,12 +43,6 @@
         </div>
         <div class="donate-company">Rubrak Pet Care Co., Ltd.</div>
     </div>
-    {{-- <div class="donate-wrap d-flex flex-column align-items-center justify-content-center text-center min-vh-100 py-5">
-    <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}" alt="Brand" width="110">
-    <h2 class="donate-title">Donate Us</h2>
-    <img src="{{ asset('photo/Promptpay.webp') }}" alt="QR Code" class="donate-qr">
-    <div class="donate-company">Rubrak Pet Care Co., Ltd.</div>
-  </div> --}}
-  {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> --}}
+    
 </body>
 </html>

@@ -9,12 +9,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/header.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/yourreq.css')}}">
     <title>Rubrak</title>
-    {{-- js --}}
-    {{-- <script>
-        window.petsData = @json($requests);
-        window.adoptUrlTemplate = "{{ route('req.view', ':pet_id') }}";
-    </script>
-    <script src="{{ asset('js/pet-modal.js') }}"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
@@ -24,7 +18,7 @@
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
             <p>Rubrak</p>
         </div>
-        <div class="nav">     
+        <div class="nav">
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
             <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
@@ -88,7 +82,7 @@
                 @if ($pc)
                     <div class="reqEdit">
                         <a href="{{route('requests.edit',['id' => $req->number_req])}}"class="btn btn-outline-primary" style="width: 75px">Edit</a>
-                        {{-- <button class="btn btn-sm btn-outline-primary" style="width: 75px" ><a href="{{route('requests.edit',['id' => $req->number_req])}}">Edit</button></a> --}}
+
                     <form action="{{route('req.destroy',['id' => $req->number_req])}}" method="POST"
                         onsubmit="return confirm('Are you sure to cancel ?')" style="margin:0;">
                         @csrf
@@ -100,7 +94,7 @@
                 <button class="btn btn-light" disabled>Can not edit</button>
                 @endif
         </div>
-        {{-- <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{route('request.form')}}">Send a request</a></button> --}}
+        
         @endforeach
     </div>
     </div>

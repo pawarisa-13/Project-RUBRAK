@@ -35,6 +35,13 @@
                 <p>{{ session('success') }}</p>
             </div>
         </div>
+    @elseif (session('error'))
+        <div class="preem" id="preem-popup">
+            <div class="preem-content">
+                <span class="close-btn" onclick="closePreem()">&times;</span>
+                <p>{{ session('error') }}</p>
+            </div>
+        </div>
     @endif
     <header>
         <div class="logo">
@@ -112,7 +119,7 @@
         <tbody>
              @if($requests->isEmpty())
             <tr>
-                 <td colspan="12">{{-- <td > colspan="11" style="text-align:center; color:#888;" --}}
+                 <td colspan="12">
                     No request
                 </td>
             </tr>
@@ -131,7 +138,7 @@
                 <td>{{$item->address_user}}</td>
                 <td>{{$item->created_at->format('j M Y H:i')}}</td>
                 <td>{{$item->status_request}}</td>
-                {{-- <td>{{$item->status_request}}</td> --}}
+                
                 <td>
                 @php
                     $pc = ($item->status_request === 'waiting') ;

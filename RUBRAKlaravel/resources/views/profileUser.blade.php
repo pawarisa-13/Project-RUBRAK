@@ -76,7 +76,6 @@
       <div class="info-box">
         <h5>Profile Information</h5>
         <p><strong>Username: </strong> {{ Auth::user()->name ?? '-' }}</p>
-        <!-- <p><strong>Phone: </strong> {{ Auth::user()->phone ?? '-' }}</p> -->
         <p><strong>Email: </strong> {{ Auth::user()->email ?? '-' }}</p>
       </div>
     <!-- ส่วน edit profile -->
@@ -90,11 +89,6 @@
             <input type="text" name="name" class="info"
               value="{{ old('name', Auth::user()->name ?? '') }}" required>
           </div>
-          <!-- <div class="mb-3">
-            <label class="form-label">Phone: </label>
-            <input type="text" name="phone" class="info"
-              value="{{ old('phone', Auth::user()->phone ?? '') }}">
-          </div> -->
           <div class="mb-3 f2">
             <label class="form-label">Email:</label>
             <input type="email" name="email" class="info"
