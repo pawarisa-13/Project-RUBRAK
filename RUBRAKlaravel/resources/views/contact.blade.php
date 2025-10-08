@@ -50,7 +50,7 @@
             <div class="left-con">
             <div class="sub-contact">
             <h2>Address</h2>
-            <p>123/2002 Moo 16 Mittapap Rd.,<br> Nai-Muang, Muang District, Khon Kaen 40002,Thailand.</p>
+            <p>123/2002 Moo 16 Mittapap Rd.,<br> Nai-Muang, Muang District, <br>Khon Kaen 40002,Thailand.</p>
 
             </div>
             <div class="sub-contact">

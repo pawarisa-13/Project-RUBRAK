@@ -4,6 +4,7 @@ header ul {
             gap: 40px;
             align-items: center;
             margin: 0;
+            gap: 100px;
         }
 header {
             background: white;
@@ -16,6 +17,7 @@ header {
             top: 0;
             z-index: 1000;
             border-bottom: 10px solid #284a8f;
+            gap: 100px;
             
         }
 * {

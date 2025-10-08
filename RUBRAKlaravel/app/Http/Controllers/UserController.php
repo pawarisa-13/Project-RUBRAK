@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Models\Pet;
-use App\Models\RequestAdopt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 // use App\Http\Controllers\Auth;
+use App\Models\RequestAdopt ;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\DB;
 class UserController extends Controller
 {
     public function index(){
@@ -40,21 +42,25 @@ class UserController extends Controller
     // {
     //     return view('profileUser');
     // }
+    public function update(Request $request) {
+    $user = User::findOrFail(auth()->id());
+    $user->update($request->only('name','email'));
+    return redirect()->route('profile')->with('success','อัปเดตข้อมูลเรียบร้อยแล้ว');
+}
+    // public function update(Request $request)
+    // {
+    //     $user = Auth::user();
 
-    public function update(Request $request)
-    {
-        $user = Auth::user();
-
-        $name = $request->validate([
-            'name'  => ['required','string','max:255'],
-            'phone' => ['nullable','string','max:50'],
-            'email' => ['required','email','max:255','unique:users,email,'.$user->id],
-        ]);
+    //     $name = $request->validate([
+    //         'name'  => ['required','string','max:255'],
+    //         'phone' => ['nullable','string','max:50'],
+    //         'email' => ['required','email','max:255','unique:users,email,'.$user->id],
+    //     ]);
 
 
-        $user->update($request->only('name','email'));
-        return redirect()->route('profile')->with('success','อัปเดตข้อมูลเรียบร้อยแล้ว');
-    }
+    //     $user->update($request->only('name','email'));
+    //     return redirect()->route('profile')->with('success','อัปเดตข้อมูลเรียบร้อยแล้ว');
+    // }
     public function your_request()
 {
     $userId = auth()->id(); // ดึง ID ของผู้ใช้ที่ล็อกอินอยู่
