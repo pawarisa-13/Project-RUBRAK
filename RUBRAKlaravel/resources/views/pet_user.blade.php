@@ -103,7 +103,7 @@
                 <h3>{{ $pet->name_pet }}</h3>
                 <p>{{ $pet->gender }} | {{ $pet->province }}</p>
                 <button onclick="openModal('{{ $pet->pet_id }}')">More Info</button>
-                <button class="adopt-btn"><a style="text-decoration: none ; color:aliceblue;"  href="{{ route('req.view', ['pet_id' => $pet->pet_id]) }}">Send a request</a></button>
+                <button class="adopt-btn" onclick="window.location.href='{{ route('req.view', ['pet_id' => $pet->pet_id]) }}'">Send a request</button>
             </div>
             @endforeach
         </div>
