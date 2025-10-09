@@ -108,12 +108,8 @@ class PetController extends Controller
     $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
     return view('Request', compact('pet'));
     }
-<<<<<<< Updated upstream
-
-=======
     
     //ไม่ได้ใช้
->>>>>>> Stashed changes
      public function request(Request $req)
     {
         $req->validate([
