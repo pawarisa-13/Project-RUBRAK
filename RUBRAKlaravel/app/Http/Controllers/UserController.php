@@ -46,7 +46,7 @@ class UserController extends Controller
 {
     $userId = auth()->id();
     $requests = RequestAdopt::where('user_id', auth()->id())
-        ->withTrashed('pet')
+        ->with('pet')
         ->get();
 
 
@@ -55,7 +55,7 @@ class UserController extends Controller
 public function reEdit($id)
     {
         $rd = RequestAdopt::where('user_id', auth()->id())
-            ->where('status_request','waiting') 
+            ->where('status_request','waiting')
             ->findOrFail($id);
         return view('editReq', compact('rd'));
     }

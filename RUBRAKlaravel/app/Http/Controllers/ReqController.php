@@ -20,10 +20,8 @@ class ReqController extends Controller
         ]);
 
         $already = RequestAdopt::where('user_id', auth()->id())
-                ->where('pet_id', $req->pet_id)
-                ->exists();
-
-
+        ->where('pet_id', $req->pet_id)
+        ->exists();
 
         if ($already) {
         return redirect()->route('pet.filter')->with('error','You have already submitted an adoption request for this animal. You cannot submit it again.');
@@ -55,8 +53,6 @@ class ReqController extends Controller
     {
         $filter = $requests->query('status', 'waiting');
         $rt= RequestAdopt::with(['user','pet']);
-
-
         switch ($filter) {
             case 'waiting':
                 $rt->where('status_request', 'waiting')->orderByDesc('pet_id');
@@ -64,17 +60,18 @@ class ReqController extends Controller
                 break;
 
             case 'approved':
-                $rt->onlyTrashed()->where('status_request', 'approved')->orderByDesc('deleted_at');
+                $rt->where('status_request', 'approved')->orderByDesc('deleted_at');
 
                 break;
 
             case 'rejected':
-                $rt->onlyTrashed()->where('status_request', 'rejected')->orderByDesc('deleted_at');
+                $rt->where('status_request', 'rejected')->orderByDesc('deleted_at');
 
                 break;
 
             case 'all':
-                $rt->withTrashed()->orderByDesc('status_request');
+                // $rt->withTrashed('status_request')->orderByDesc('status_request');
+                $rt= RequestAdopt::with(['user','pet'])->orderByDesc('status_request');
                 break;
         }
         $requests = $rt->get();
@@ -92,7 +89,7 @@ class ReqController extends Controller
         ->where('number_req', '!=', $req->number_req)
         ->update(['status_request' => 'rejected']);
     Pet::where('pet_id', $req->pet_id)->update(['status' => 0]);
-    RequestAdopt::where('pet_id', $req->pet_id)->delete();
+    // RequestAdopt::where('pet_id', $req->pet_id)->delete();
     return redirect()->route('reqTable')->with('success','approved');
 }
 
@@ -100,7 +97,8 @@ public function reject($id)
 {
     RequestAdopt::where('number_req', $id)->update(['status_request' => 'rejected']);
     $req = RequestAdopt::findOrFail($id);
-    $req->delete();
+    // RequestAdopt::where('pet_id', $req->pet_id)->delete();
+    // $req->delete();
 
     return redirect()->route('reqTable')->with('error', 'rejected');
 }

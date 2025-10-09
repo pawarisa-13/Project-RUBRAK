@@ -15,7 +15,7 @@
             <img src="{{ asset('Pic-rubrak/LogoRubRak.png.PNG') }}"  alt="imglogo">
             <p>Rubrak</p>
         </div>
-        <div class="nav">     
+        <div class="nav">
         <ul>
             <li class="menu"><a href="{{route ('home')}}">Home</a></li>
             <li class="menu"><a href="{{route ('pet.filter')}}">Pet</a></li>
@@ -41,16 +41,16 @@
             <img src="{{ asset('Pic-rubrak/homepic.jpg') }}" alt="homepic" width="635" height="741" style="float: left; margin-right: 10px;">
         </div>
         <div class="home-content">
-            <h1>Welcome to “Rub Rak”</h1> 
+            <h1>Welcome to “Rub Rak”</h1>
             <br>
             <div>
                 <p>Every animal deserves a safe, loving home.
             Here, you’ll find loyal companions who are ready to bring joy, and warmth into your life.
-            When you adopt, you’re not just giving an animal a home-you’re 
+            When you adopt, you’re not just giving an animal a home-you’re
             opening your heart to a lifetime of unconditional love. </p>
             </div>
             <br>
-            <a href="{{route ('pet.filter')}}"><button class="adopt-button">Adopt Now</button></a>
+            <a  href="{{route ('pet.filter')}}"><button class="adopt-button">Adopt Now</button></a>
         </div>
     </main>
 </body>

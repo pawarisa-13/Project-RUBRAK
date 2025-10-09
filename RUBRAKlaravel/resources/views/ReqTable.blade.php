@@ -138,7 +138,7 @@
                 <td>{{$item->address_user}}</td>
                 <td>{{$item->created_at->format('j M Y H:i')}}</td>
                 <td>{{$item->status_request}}</td>
-                
+
                 <td>
                 @php
                     $pc = ($item->status_request === 'waiting') ;
@@ -159,7 +159,7 @@
                     </form>
                 </td>
                 @else
-                {{$item->deleted_at->format('j M Y H:i')}}
+                {{$item->updated_at->format('j M Y H:i')}}
                 @endif
             </tr>
          @endforeach
