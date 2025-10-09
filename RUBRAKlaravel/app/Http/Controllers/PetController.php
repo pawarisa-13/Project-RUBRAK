@@ -91,6 +91,7 @@ class PetController extends Controller
     //     return view('Request');
     //  }
 
+    //ไม่ได้ใช้
     public function pets_user(Request $request)
     {
         $type = $request->input('type');
@@ -102,11 +103,17 @@ class PetController extends Controller
         return view('pet_user', compact('pets', 'type'));
     }
 
+    //ไม่ได้ใช้
     public function req($pet_id){
     $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
     return view('Request', compact('pet'));
     }
+<<<<<<< Updated upstream
 
+=======
+    
+    //ไม่ได้ใช้
+>>>>>>> Stashed changes
      public function request(Request $req)
     {
         $req->validate([

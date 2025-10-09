@@ -18,6 +18,7 @@ class UserController extends Controller
         return view('home');
     }
 
+    //ไม่ได้ใช้
      public function showpets()
      {
          $pets = Pet::all();
