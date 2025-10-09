@@ -97,7 +97,7 @@ class PetController extends Controller
         if ($type) {
             $pets = Pet::where('type', $type)->get();
         } else {
-            $pets = Pet::all();
+            $pets = Pet::where('status', 1)->get();
         }
         return view('pet_user', compact('pets', 'type'));
     }
@@ -106,19 +106,14 @@ class PetController extends Controller
     $pet = Pet::where('pet_id', $pet_id)->firstOrFail();
     return view('Request', compact('pet'));
     }
-    
+
      public function request(Request $req)
     {
         $req->validate([
-            'pet_id'         => [
-                'required',
-                'integer',
-                'exists:pets,pet_id',
-                Rule::unique('requests')->where(
-                    fn($q) =>
-                    $q->where('user_id', auth()->id())
-                )
-            ],
+            'pet_id' => ['required','integer','exists:pets,pet_id',
+            Rule::unique('requests')->where(fn($q) =>$q
+            ->where('user_id', auth()->id())
+            )],
             'pet_experience' => 'required|string',
             'other_pet'      => 'required|string',
             'adopt_reason'   => 'required|string',

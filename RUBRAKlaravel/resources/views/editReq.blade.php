@@ -67,27 +67,27 @@
         @method('PUT')
         <div class="form-group mb-3 flex-column">
                 <label>Pet Experience</label>
-                <input type="text" name="pet_experience" class="form-control" value="{{ old('pet_experience', $rd->pet_experience) }}">
+                <input type="text" name="pet_experience" class="form-control" value="{{  $rd->pet_experience }}" required>
             </div>
 
             <div class="form-group mb-3 flex-column">
                 <label>Other Pets</label>
-                <input type="text" name="other_pet" class="form-control" value="{{ old('other_pet', $rd->other_pet) }}" required>
+                <input type="text" name="other_pet" class="form-control" value="{{  $rd->other_pet }}" required>
             </div>
 
             <div class="form-group mb-3 flex-column">
                 <label>Adopt Reason</label>
-                <input type="text" name="adopt_reason" class="form-control" value="{{ old('adopt_reason', $rd->adopt_reason) }}" required>
+                <input type="text" name="adopt_reason" class="form-control" value="{{ $rd->adopt_reason }}" required>
             </div>
 
             <div class="form-group mb-3 flex-column">
                 <label>Phone</label>
-                <input type="tel" name="phone" class="form-control" value="{{ old('phone', $rd->phone) }}" required>
+                <input type="tel" name="phone" class="form-control" value="{{  $rd->phone }}" required>
             </div>
 
             <div class="form-group mb-4 flex-column">
                 <label>Address</label>
-                <input type="text" name="address_user" class="form-control" value="{{ old('address_user', $rd->address_user) }}" required>
+                <input type="text" name="address_user" class="form-control" value="{{  $rd->address_user }}" required>
         </div>
 
         <div class="btn-edit">

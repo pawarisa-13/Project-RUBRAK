@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigIncrements('number_req');
             $table->unique(['user_id','pet_id']); //อันนี้แบบไม่ให้ user ส่งซ้ำกัน
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete(); //ไว้ดึง id user
-            $table->foreignId('pet_id')->references('pet_id')->on('pets')->cascadeOndelete(); //ไว้ดึง id pet
+            $table->foreignId('pet_id')->references('pet_id')->on('pets')->cascadeOnDelete(); //ไว้ดึง id pet
             $table->string('phone',20);
             $table->text("pet_experience");
             $table->string("other_pet");
@@ -34,6 +34,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('requests');
-        
+
     }
 };
