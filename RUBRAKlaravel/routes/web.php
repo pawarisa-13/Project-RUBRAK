@@ -53,12 +53,13 @@ Route::middleware([
     Route::put ('/my/requests/{id}',[UserController::class,'reUpdate'])->name('requests.update');
     Route::delete('/my/requests/{id}/destroy', [UserController::class, 'Destroy'])->name('req.destroy');
     //pets_user
-    Route::get('/pet', [Pet_UserController::class, "index"])->name('pet.filter'); //**** */
+    Route::get('/pet', [Pet_UserController::class, "index"])->name('pet.filter');
+    Route::get('/petadmin', [Pet_UserController::class, "postadmin"])->name('post_pet'); //**** */
 
     //Admin
     Route::get('admin/pets', [PetController::class, 'index'])->name('admin.pets.index');
     Route::put('/admin/pets/{id}', [PetController::class, 'update'])->middleware(CheckRole::class)->name('admin.pets.update');
-    Route::post('/pet', [PetController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
+    Route::post('/petadmin', [PetController::class, 'store'])->middleware(CheckRole::class)->name('pets.store');
     Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->middleware(CheckRole::class)->name('pets.edit');
     Route::delete('/pets/{id}', [PetController::class, 'destroy'])->middleware(CheckRole::class)->name('pets.destroy');
     Route::post('/requests/{id}/approve', [ReqController::class, 'approve'])->name('request.approve');

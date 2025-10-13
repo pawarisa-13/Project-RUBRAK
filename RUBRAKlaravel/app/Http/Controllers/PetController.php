@@ -38,7 +38,7 @@ class PetController extends Controller
 
         Pet::create($data);
 
-        return redirect('/pet')->with('success', 'Pet Added Successfully!');
+        return redirect('/petadmin')->with('success', 'Pet Added Successfully!');
     }
     public function edit($id)
     {

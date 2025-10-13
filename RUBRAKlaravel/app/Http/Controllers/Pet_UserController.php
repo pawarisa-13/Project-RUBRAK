@@ -18,4 +18,9 @@ class Pet_UserController extends Controller
         }
         return view('pet_user', compact('pets', 'type'));
     }
+
+    public function postadmin(){
+        $pets = Pet::all();
+        return view('post_pet', compact('pets'));
+    }
 }
